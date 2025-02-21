@@ -1,0 +1,948 @@
+[
+    {
+    "label" : "todos",
+    "codigoSistemaVentas": "0",
+    "descripcion": "todos",
+    "imagen" : "LayoutGrid",
+    "frecuente" : "true"
+    },
+    {
+    "label": "ACONDICIONADOR DE AIRE",
+    "codigoSistemaVentas": "001",
+    "descripcion": "ACONDICIONADOR DE AIRE",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "AFEITADORA",
+    "codigoSistemaVentas": "002",
+    "descripcion": "AFEITADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ALACENA",
+    "codigoSistemaVentas": "003",
+    "descripcion": "ALACENA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ALMOHADA",
+    "codigoSistemaVentas": "004",
+    "descripcion": "ALMOHADA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ANDADOR",
+    "codigoSistemaVentas": "005",
+    "descripcion": "ANDADOR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ANTENA DE TV",
+    "codigoSistemaVentas": "006",
+    "descripcion": "ANTENA DE TV",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "APARADOR",
+    "codigoSistemaVentas": "007",
+    "descripcion": "APARADOR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ART.INFANTILES",
+    "codigoSistemaVentas": "008",
+    "descripcion": "ART.INFANTILES",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ART.DE AUDIO",
+    "codigoSistemaVentas": "009",
+    "descripcion": "ART.DE AUDIO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PLACAR",
+    "codigoSistemaVentas": "01",
+    "descripcion": "PLACAR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ASPIRADORA",
+    "codigoSistemaVentas": "010",
+    "descripcion": "ASPIRADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "GIMNASIA",
+    "codigoSistemaVentas": "011",
+    "descripcion": "GIMNASIA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ART.DE CAMPING",
+    "codigoSistemaVentas": "012",
+    "descripcion": "ART.DE CAMPING",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "BALANZA",
+    "codigoSistemaVentas": "013",
+    "descripcion": "BALANZA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "JUEGO DE BATERIA",
+    "codigoSistemaVentas": "014",
+    "descripcion": "JUEGO DE BATERIA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "BATIDORA",
+    "codigoSistemaVentas": "015",
+    "descripcion": "BATIDORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "BIBLIOTECA",
+    "codigoSistemaVentas": "016",
+    "descripcion": "BIBLIOTECA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "BICICLETA",
+    "codigoSistemaVentas": "017",
+    "descripcion": "BICICLETA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "BUTACAS",
+    "codigoSistemaVentas": "018",
+    "descripcion": "BUTACAS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "BOTIQUIN",
+    "codigoSistemaVentas": "019",
+    "descripcion": "BOTIQUIN",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CALCULADORA",
+    "codigoSistemaVentas": "020",
+    "descripcion": "CALCULADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "COMPUTACION",
+    "codigoSistemaVentas": "021",
+    "descripcion": "COMPUTACION",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CAFETERA",
+    "codigoSistemaVentas": "022",
+    "descripcion": "CAFETERA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CALEFACTOR",
+    "codigoSistemaVentas": "023",
+    "descripcion": "CALEFACTOR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CALEFON",
+    "codigoSistemaVentas": "024",
+    "descripcion": "CALEFON",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CALENTADOR",
+    "codigoSistemaVentas": "025",
+    "descripcion": "CALENTADOR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CAMA",
+    "codigoSistemaVentas": "026",
+    "descripcion": "CAMA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CAMPANA",
+    "codigoSistemaVentas": "027",
+    "descripcion": "CAMPANA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "AUDIO",
+    "codigoSistemaVentas": "028",
+    "descripcion": "AUDIO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "COCHE BB",
+    "codigoSistemaVentas": "029",
+    "descripcion": "COCHE BB",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CHIFONIER",
+    "codigoSistemaVentas": "030",
+    "descripcion": "CHIFONIER",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "COCINA",
+    "codigoSistemaVentas": "031",
+    "descripcion": "COCINA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "COLCHON",
+    "codigoSistemaVentas": "032",
+    "descripcion": "COLCHON",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "COMODA",
+    "codigoSistemaVentas": "033",
+    "descripcion": "COMODA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CONEXIONES",
+    "codigoSistemaVentas": "034",
+    "descripcion": "CONEXIONES",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CONSERVADORA",
+    "codigoSistemaVentas": "035",
+    "descripcion": "CONSERVADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CORRALITO",
+    "codigoSistemaVentas": "036",
+    "descripcion": "CORRALITO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CORTADORA DE CESPED",
+    "codigoSistemaVentas": "037",
+    "descripcion": "CORTADORA DE CESPED",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CUCHETA",
+    "codigoSistemaVentas": "038",
+    "descripcion": "CUCHETA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CUNA",
+    "codigoSistemaVentas": "039",
+    "descripcion": "CUNA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CORTADORA",
+    "codigoSistemaVentas": "040",
+    "descripcion": "CORTADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "DEPILADORA",
+    "codigoSistemaVentas": "043",
+    "descripcion": "DEPILADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ELECTR.",
+    "codigoSistemaVentas": "047",
+    "descripcion": "ELECTR.",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ESCRITORIO",
+    "codigoSistemaVentas": "048",
+    "descripcion": "ESCRITORIO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ESPEJO",
+    "codigoSistemaVentas": "049",
+    "descripcion": "ESPEJO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ESTUFA",
+    "codigoSistemaVentas": "050",
+    "descripcion": "ESTUFA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "EXPRIMIDOR",
+    "codigoSistemaVentas": "051",
+    "descripcion": "EXPRIMIDOR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "FILMADORA",
+    "codigoSistemaVentas": "053",
+    "descripcion": "FILMADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "FABRIPASTA",
+    "codigoSistemaVentas": "054",
+    "descripcion": "FABRIPASTA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "FAROL",
+    "codigoSistemaVentas": "055",
+    "descripcion": "FAROL",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "FREEZER",
+    "codigoSistemaVentas": "056",
+    "descripcion": "FREEZER",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "FREIDORA",
+    "codigoSistemaVentas": "057",
+    "descripcion": "FREIDORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "GARRAFA",
+    "codigoSistemaVentas": "060",
+    "descripcion": "GARRAFA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "GUITARRA",
+    "codigoSistemaVentas": "061",
+    "descripcion": "GUITARRA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "HORNO",
+    "codigoSistemaVentas": "062",
+    "descripcion": "HORNO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "HER.",
+    "codigoSistemaVentas": "063",
+    "descripcion": "HER.",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "HELADERA",
+    "codigoSistemaVentas": "064",
+    "descripcion": "HELADERA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "INDUSTRIAL",
+    "codigoSistemaVentas": "065",
+    "descripcion": "INDUSTRIAL",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "JUEGO DE MESA Y SILLAS",
+    "codigoSistemaVentas": "066",
+    "descripcion": "JUEGO DE MESA Y SILLAS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "JARDIN",
+    "codigoSistemaVentas": "067",
+    "descripcion": "JARDIN",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "JUEGOS",
+    "codigoSistemaVentas": "068",
+    "descripcion": "JUEGOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "JUGUERA",
+    "codigoSistemaVentas": "069",
+    "descripcion": "JUGUERA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "LAVANDIN",
+    "codigoSistemaVentas": "072",
+    "descripcion": "LAVANDIN",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "LAVARROPAS",
+    "codigoSistemaVentas": "073",
+    "descripcion": "LAVARROPAS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "LICUADORA",
+    "codigoSistemaVentas": "074",
+    "descripcion": "LICUADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "LIVING",
+    "codigoSistemaVentas": "075",
+    "descripcion": "LIVING",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "LUSTRASPIRADORA",
+    "codigoSistemaVentas": "076",
+    "descripcion": "LUSTRASPIRADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MAQUINA FOTOGRAFICA",
+    "codigoSistemaVentas": "077",
+    "descripcion": "MAQUINA FOTOGRAFICA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MAQUINA DE ESCRIBIR",
+    "codigoSistemaVentas": "078",
+    "descripcion": "MAQUINA DE ESCRIBIR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MAQUINA DE COSER",
+    "codigoSistemaVentas": "079",
+    "descripcion": "MAQUINA DE COSER",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MEDIO DORMITORIO",
+    "codigoSistemaVentas": "080",
+    "descripcion": "MEDIO DORMITORIO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MESA DE BAR",
+    "codigoSistemaVentas": "081",
+    "descripcion": "MESA DE BAR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MESA DE COMEDOR",
+    "codigoSistemaVentas": "082",
+    "descripcion": "MESA DE COMEDOR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MESA DE LIVING",
+    "codigoSistemaVentas": "083",
+    "descripcion": "MESA DE LIVING",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MESA DE LUZ",
+    "codigoSistemaVentas": "084",
+    "descripcion": "MESA DE LUZ",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MESA DE PLANCHAR",
+    "codigoSistemaVentas": "085",
+    "descripcion": "MESA DE PLANCHAR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MESA DE TELEFONO",
+    "codigoSistemaVentas": "086",
+    "descripcion": "MESA DE TELEFONO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MESA DE",
+    "codigoSistemaVentas": "087",
+    "descripcion": "MESA DE",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MESA DE CAMPING",
+    "codigoSistemaVentas": "088",
+    "descripcion": "MESA DE CAMPING",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MESADA",
+    "codigoSistemaVentas": "089",
+    "descripcion": "MESADA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MODULAR",
+    "codigoSistemaVentas": "091",
+    "descripcion": "MODULAR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MULTIPROCESADORA",
+    "codigoSistemaVentas": "092",
+    "descripcion": "MULTIPROCESADORA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MOTOS",
+    "codigoSistemaVentas": "093",
+    "descripcion": "MOTOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "OLLAS",
+    "codigoSistemaVentas": "095",
+    "descripcion": "OLLAS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PAVA",
+    "codigoSistemaVentas": "097",
+    "descripcion": "PAVA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PERCHERO",
+    "codigoSistemaVentas": "098",
+    "descripcion": "PERCHERO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PILETA",
+    "codigoSistemaVentas": "099",
+    "descripcion": "PILETA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MOTA",
+    "codigoSistemaVentas": "1",
+    "descripcion": "MOTA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PLACARD",
+    "codigoSistemaVentas": "100",
+    "descripcion": "PLACARD",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PLANCHA",
+    "codigoSistemaVentas": "101",
+    "descripcion": "PLANCHA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PROD. MUSICALES",
+    "codigoSistemaVentas": "103",
+    "descripcion": "PROD. MUSICALES",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "RADIO",
+    "codigoSistemaVentas": "105",
+    "descripcion": "RADIO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MICRO AUDIO",
+    "codigoSistemaVentas": "106",
+    "descripcion": "MICRO AUDIO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "REPISA",
+    "codigoSistemaVentas": "108",
+    "descripcion": "REPISA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "REPOSERA",
+    "codigoSistemaVentas": "109",
+    "descripcion": "REPOSERA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ROPERO",
+    "codigoSistemaVentas": "110",
+    "descripcion": "ROPERO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "RODADOS INFANTILES",
+    "codigoSistemaVentas": "111",
+    "descripcion": "RODADOS INFANTILES",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "SALUD",
+    "codigoSistemaVentas": "112",
+    "descripcion": "SALUD",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "SECADOR DE CABELLOS",
+    "codigoSistemaVentas": "113",
+    "descripcion": "SECADOR DE CABELLOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "SECARROPAS",
+    "codigoSistemaVentas": "114",
+    "descripcion": "SECARROPAS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "SILLAS",
+    "codigoSistemaVentas": "115",
+    "descripcion": "SILLAS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "SILLETAS",
+    "codigoSistemaVentas": "116",
+    "descripcion": "SILLETAS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "SILLON",
+    "codigoSistemaVentas": "117",
+    "descripcion": "SILLON",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "SOMBRILLA",
+    "codigoSistemaVentas": "118",
+    "descripcion": "SOMBRILLA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "TELEVISOR",
+    "codigoSistemaVentas": "121",
+    "descripcion": "TELEVISOR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "TERMOTANQUE",
+    "codigoSistemaVentas": "122",
+    "descripcion": "TERMOTANQUE",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "TELEFONO",
+    "codigoSistemaVentas": "123",
+    "descripcion": "TELEFONO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "TURBO",
+    "codigoSistemaVentas": "124",
+    "descripcion": "TURBO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "VIDEO",
+    "codigoSistemaVentas": "125",
+    "descripcion": "VIDEO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ART.",
+    "codigoSistemaVentas": "127",
+    "descripcion": "ART.",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "SERVICIOS",
+    "codigoSistemaVentas": "128",
+    "descripcion": "SERVICIOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "VENTILADOR",
+    "codigoSistemaVentas": "129",
+    "descripcion": "VENTILADOR",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MC.",
+    "codigoSistemaVentas": "130",
+    "descripcion": "MC.",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "BLANQUERIA",
+    "codigoSistemaVentas": "131",
+    "descripcion": "BLANQUERIA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PLASTICOS",
+    "codigoSistemaVentas": "132",
+    "descripcion": "PLASTICOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ACCESORIOS",
+    "codigoSistemaVentas": "135",
+    "descripcion": "ACCESORIOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "CALZADOS",
+    "codigoSistemaVentas": "140",
+    "descripcion": "CALZADOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "RELOJ",
+    "codigoSistemaVentas": "150",
+    "descripcion": "RELOJ",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "SPRAYETTE",
+    "codigoSistemaVentas": "160",
+    "descripcion": "SPRAYETTE",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "ELECTRIC.",
+    "codigoSistemaVentas": "170",
+    "descripcion": "ELECTRIC.",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "P.ELECTRONICOS",
+    "codigoSistemaVentas": "200",
+    "descripcion": "P.ELECTRONICOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "P.ELECTRICOS",
+    "codigoSistemaVentas": "201",
+    "descripcion": "P.ELECTRICOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "VARIOS",
+    "codigoSistemaVentas": "202",
+    "descripcion": "VARIOS",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "FABRIPASTA",
+    "codigoSistemaVentas": "203",
+    "descripcion": "FABRIPASTA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "DESCUENTO GENERAL",
+    "codigoSistemaVentas": "204",
+    "descripcion": "DESCUENTO GENERAL",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PROD.",
+    "codigoSistemaVentas": "210",
+    "descripcion": "PROD.",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "VEHICULO",
+    "codigoSistemaVentas": "250",
+    "descripcion": "VEHICULO",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": ".",
+    "codigoSistemaVentas": "300",
+    "descripcion": ".",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": ".",
+    "codigoSistemaVentas": "302",
+    "descripcion": ".",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "MOTTA",
+    "codigoSistemaVentas": "630",
+    "descripcion": "MOTTA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "..",
+    "codigoSistemaVentas": "935",
+    "descripcion": "..",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "GARANTIA EXTENDIDA",
+    "codigoSistemaVentas": "999",
+    "descripcion": "GARANTIA EXTENDIDA",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "vic1ky",
+    "codigoSistemaVentas": "viic",
+    "descripcion": "vic1ky",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    },
+    {
+    "label": "PLACARD",
+    "codigoSistemaVentas": "�",
+    "descripcion": "PLACARD",
+    "imagen":  " Tags",
+    "frecuente": "false"
+    }
+    ]
+    

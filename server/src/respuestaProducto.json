@@ -1,0 +1,120 @@
+{
+    "descripcion": "Smart Refrigerator",
+    "codigo": "3400",
+    "categoriaId": "67869a03459cfb569da58881",
+    "detalle": "Keep your food fresh with this smart refrigerator. Features touchscreen interface and inventory management.",
+    "tabsData": [
+      {
+        "label": "Características",
+        "content": [
+          {
+            "nombre": "Marca:",
+            "valor": "Philco",
+            "_id": "679b9e4d202758a19040e80a"
+          },
+          {
+            "nombre": "Ofrecido Por:",
+            "valor": "Electronica Andina SRL",
+            "_id": "679b9e4d202758a19040e80b"
+          },
+          {
+            "nombre": "Modelo:",
+            "valor": "AZ-400- Inverter",
+            "_id": "679b9e4d202758a19040e80c"
+          },
+          {
+            "nombre": "Tipo de Producto:",
+            "valor": "Auriculares",
+            "_id": "679b9e4d202758a19040e80d"
+          },
+          {
+            "nombre": "Garantia del Proveedor:",
+            "valor": "1 año",
+            "_id": "679b9e4d202758a19040e80e"
+          },
+          {
+            "nombre": "Origen:",
+            "valor": "Argentina",
+            "_id": "679b9e4d202758a19040e80f"
+          },
+          {
+            "nombre": "Color:",
+            "valor": "Negro con rojo",
+            "_id": "679b9e4d202758a19040e810"
+          },
+          {
+            "nombre": "Certificación:",
+            "valor": "ISO 9001",
+            "_id": "679b9e4d202758a19040e811"
+          },
+          {
+            "nombre": "Certificadora:",
+            "valor": "ChkElectronicsProducts LTD",
+            "_id": "679b9e4d202758a19040e812"
+          }
+        ],
+        "_id": "679b9e4d202758a19040e809"
+      },
+      {
+        "label": "Conectividad",
+        "content": [
+          {
+            "nombre": "Detalle:",
+            "valor": "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
+            "_id": "679b9e4d202758a19040e814"
+          }
+        ],
+        "_id": "679b9e4d202758a19040e813"
+      },
+      {
+        "label": "Tecnología",
+        "content": [
+          {
+            "nombre": "Especificaciones:",
+            "valor": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum ea sequi, architecto quia qui similique dignissimos quam vero sint eius repellendus harum neque accusamus nostrum, impedit nam inventore laborum maxime!",
+            "_id": "679b9e4d202758a19040e816"
+          }
+        ],
+        "_id": "679b9e4d202758a19040e815"
+      },
+      {
+        "label": "Detalle",
+        "content": [
+          {
+            "nombre": "Detalle:",
+            "valor": "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
+            "_id": "679b9e4d202758a19040e818"
+          }
+        ],
+        "_id": "679b9e4d202758a19040e817"
+      },
+      {
+        "label": "Medidas",
+        "content": [
+          {
+            "nombre": "Dimensiones:",
+            "valor": "180x90x45 cm",
+            "_id": "679b9e4d202758a19040e81a"
+          },
+          {
+            "nombre": "Peso:",
+            "valor": "45 Kgs",
+            "_id": "679b9e4d202758a19040e81b"
+          }
+        ],
+        "_id": "679b9e4d202758a19040e819"
+      }
+    ],
+    "precio": 180000,
+    "precioOferta": 0,
+    "stock": 1,
+    "urlImagen": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5",
+    "destacado": false,
+    "oferta": false,
+    "nuevo": false,
+    "masVendido": false,
+    "_id": "679b9e4d202758a19040e808",
+    "createdAt": "2025-01-30T15:44:13.526Z",
+    "updatedAt": "2025-01-30T15:44:13.526Z",
+    "__v": 0
+  }
