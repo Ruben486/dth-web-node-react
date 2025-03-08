@@ -1,8 +1,7 @@
 import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight, Tag,Tags } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef,memo } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-// import { categories } from "@/constants/categories";
 import Loader from "./Loader";
 import { useFrequentCategories } from "../hooks/useCategories";
 import { useToast } from "./ui/use-toast";
@@ -13,7 +12,7 @@ interface CategoriesProps {
   onCategorySelect: (categoryId: string) => void;
 }
 
-const Categories = ({
+const Categories = memo(({
   selectedCategory,
   onCategorySelect,
 }: CategoriesProps) => {
@@ -36,14 +35,13 @@ const Categories = ({
         description: `Se ha producido un error en la red:  ${error.message}`,
       });
     }
-  }, [isError]);
+  }, [isError,toast,error?.message]);
 
   if (status === "pending") {
     return <Loader />;
   }
-  console.log(categories);
-
-  const hnadleCategorySelect = (id) => {
+  
+  const handleCategorySelect = (id) => {
     onCategorySelect(id);
   };
 
@@ -79,7 +77,8 @@ const Categories = ({
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white shadow-md hover:bg-gray-100"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10
+           bg-white shadow-md hover:bg-gray-100"
           onClick={() => scroll("left")}
         >
           <ChevronLeft className="h-4 w-4" />
@@ -105,7 +104,7 @@ const Categories = ({
                       ? "bg-gray-800 text-white"
                       : ""
                   }`}
-                  onClick={() => hnadleCategorySelect(category.id)}
+                  onClick={() => handleCategorySelect(category.id)}
                 >
                   {Icon ? <Icon /> : <Tags />}
                   <span className="text-xs font-medium">{category.label}</span>
@@ -118,7 +117,8 @@ const Categories = ({
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white shadow-md hover:bg-gray-100"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10
+           bg-white shadow-md hover:bg-gray-100"
           onClick={() => scroll("right")}
         >
           <ChevronRight className="h-4 w-4" />
@@ -126,6 +126,6 @@ const Categories = ({
       </div>
     </div>
   );
-};
+});
 
 export default Categories;

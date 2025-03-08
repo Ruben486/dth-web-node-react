@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient} from "@tanstack/react-query";
-import { getCategories } from "../api/categories"
-import { getFrequentCategories } from "../api/categories"
+import { getCategories } from "../api/categories";
+import { getFrequentCategories } from "../api/categories";
+
 export const useCategories = () => {
   return (
     useQuery({

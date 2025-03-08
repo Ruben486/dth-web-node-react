@@ -2,6 +2,7 @@ import { memo } from "react";
 import { Button } from "./ui/button";
 import { Backpack } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import {motion} from "framer-motion";
 import {
   Carousel,
   CarouselContent,
@@ -31,7 +32,11 @@ const heroImages = [
 
 const Hero = memo(() => {
   const { t } = useLanguage();
+  const heroHeader = "Descubrí el Hogar de tus Sueños.";
+  const lettersHeader = heroHeader.split("");
 
+  const heroParrafo =
+    "Encontrá todo lo que necesitás para tu hogar en un solo lugar";
   console.log("hero");
   return (
     <div className="relative min-h-[500px] bg-neutral-100">
@@ -39,9 +44,17 @@ const Hero = memo(() => {
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="absolute top-0 left-0 w-96 h-32 bg-blue-400 rounded-full blur-3xl opacity-30"></div>
           <div className="animate-fadeIn">
-            <h1 className="text-3xl md:text-6xl font-bold text-gray-900 mb-6">
-              {t("heroHeader")}
-            </h1>
+            {lettersHeader.map((letter, index) => (
+              <motion.h1
+                initial={{ filter: "blur(10px)", opacity: 0, y:12 }}
+                animate={{filter: "blur(0)", opacity: 1, y:0 }}
+                transition={{duration: 0.5, delay: 0.1 * index}}
+                key={index}
+                className={`text-3xl md:text-6xl font-bold ${index === lettersHeader.length - 1 ? "text-red-600"  : "text-gray-900"}  mb-6 inline-block`}
+              >
+                {letter === " " ? "\u00A0" : letter}
+              </motion.h1>
+            ))}
             <p className="text-base text-gray-700 mb-8">{t("heroParrafo")}</p>
 
             <Button

@@ -84,6 +84,7 @@ export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
         isFavoriteInStorage,
         removeFavoritesFromStorage,
         cargarFavoritosFromLocalStorage,
+        addFavoriteToStorage
       }}
     >
       {children}

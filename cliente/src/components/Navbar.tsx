@@ -1,4 +1,4 @@
-import { ShoppingCart, Menu, Zap, Heart, Globe2 } from "lucide-react";
+import { ShoppingCart, Menu, Zap, Heart, LogOut } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -6,13 +6,8 @@ import { config } from "../constants/config";
 import { useCart } from "../contexts/CartContext";
 import { AuthButtons } from "./AuthButtons";
 import { useFavorites } from "@/contexts/FavoriteContext";
-
-/* import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"; */
+import { Suspense } from "react";
+import Loader from "./Loader";
 
 const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -42,13 +37,18 @@ const Navbar = () => {
           <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">
             {t("deals")}
           </a>
+
           <AuthButtons />
-          
+
           <Link to="/favorites" viewTransition>
             <Button variant="ghost" size="icon" className="relative">
               <Heart className="h-5 w-5" />
               {favorites.length !== 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span
+                  className="absolute -top-1 -right-1 bg-red-500
+                text-white text-xs rounded-full h-5 w-5 flex
+                items-center justify-center"
+                >
                   {favorites.length}
                 </span>
               )}
@@ -59,7 +59,11 @@ const Navbar = () => {
             <Button variant="ghost" size="icon" className="relative">
               <ShoppingCart className="h-8 w-8" />
               {cartItems.length !== 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span
+                  className="absolute -top-1 -right-1 bg-red-500
+                text-white text-xs rounded-full h-5 w-5 flex items-center
+                justify-center"
+                >
                   {cartItems.length}
                 </span>
               )}
@@ -75,18 +79,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-{/* <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Globe2 className="h-5 w-5" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setLanguage("en")}>
-                English {language === "en" && "✓"}
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setLanguage("es")}>
-                Español {language === "es" && "✓"}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu> */}

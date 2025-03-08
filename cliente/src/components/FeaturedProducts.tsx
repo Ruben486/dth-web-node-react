@@ -7,10 +7,10 @@ import { useToast } from "./ui/use-toast";
 import { useLanguage } from "../contexts/LanguageContext";
 import useProductStore from "../store/productStore";
 import ProductCard from "./ProductCard";
-import { ViewProduct } from "./viewProduct";
+import  ViewProduct  from "./viewProduct";
 import { useScreenSize } from "../hooks/useScreenSizes";
 import { it } from "node:test";
-import { view } from "framer-motion";
+
 
 const FeaturedProducts = memo(() => {
   const { productosDestacados } = useProductStore();

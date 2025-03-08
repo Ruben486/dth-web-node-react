@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import ListaDestacados from "./ListaDestacados";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const ViewProduct = ({ viewProduct, setViewProduct = null }) => {
+const ViewProduct = ({ viewProduct, setViewProduct = null }) => {
   const { addToCart } = useCart();
   const { toast } = useToast();
   const { t } = useLanguage();
@@ -28,7 +28,7 @@ export const ViewProduct = ({ viewProduct, setViewProduct = null }) => {
   };
 
   return (
-    
+    <>
       <motion.div
         layout
         initial={{ opacity: 0 }}
@@ -103,5 +103,7 @@ export const ViewProduct = ({ viewProduct, setViewProduct = null }) => {
           </div>
         </div>
       </motion.div>
+    </>
   );
 };
+export default ViewProduct;

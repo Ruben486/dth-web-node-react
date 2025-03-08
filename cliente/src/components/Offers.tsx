@@ -6,7 +6,6 @@ import { Button } from "./ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "./ui/use-toast";
 import useProductStore from "../store/productStore";
-import { ProductCardProps } from "../types/types";
 
 const Offers = memo(() => {
   const { language } = useLanguage();

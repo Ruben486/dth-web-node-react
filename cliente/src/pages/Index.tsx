@@ -9,19 +9,15 @@ import FeaturedProducts from "@/components/FeaturedProducts";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { SearchBar } from "@/components/SearchBar";
-import { useCategories } from "../hooks/useCategories" 
-import Loader from "../components/Loader";
 
 const Index = memo(() => {
   const [selectedCategory, setSelectedCategory] = useState("0000");
   const [searchString, setSearchString] = useState("");
-  
 
   const handleSearchString = (string: string) => {
     setSearchString(string);
   };
-  
-  
+
   return (
     <div className="min-h-screen  bg-gray-100 dark:bg-black flex flex-col">
       <Navbar />
@@ -36,7 +32,7 @@ const Index = memo(() => {
         >
           <Hero />
         </motion.div>
-        
+
         <Offers />
         <PaymentAds />
         <FeaturedProducts />

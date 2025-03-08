@@ -33,6 +33,7 @@ export const categoryIcons = {
   "0000": LayoutGrid,
   "001": Snowflake,
   "017": Bike,
+  "021": Computer,
   "026": Armchair,
   "028": AudioLines,
   "031": ChefHat,
@@ -47,6 +48,7 @@ export const categoryIcons = {
   "106": AudioWaveform,
   "121": Tv,
   "123": Smartphone,
+  "130": Home,
   "200": Microchip,
   "999": Tags,
 };

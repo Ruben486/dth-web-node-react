@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { ShoppingCart, Zap, Heart, Edit, Eye } from "lucide-react";
@@ -21,7 +22,7 @@ interface ProductCardProps {
   viewInLine: boolean;
 }
 
-const ProductCard = ({
+const ProductCard = memo(({
   product,
   viewInLine = false,
   setViewProduct = null,
@@ -211,6 +212,6 @@ const ProductCard = ({
       </div>
     </Card>
   );
-};
+});
 
 export default ProductCard;

@@ -37,7 +37,7 @@ const translations: Translations = {
     dimensions: 'Dimensions',
   },
   es: {
-    heroHeader: "Descubre el Hogar de tus Sueños",
+    heroHeader: "Descubrí el Hogar de tus Sueños",
     heroParrafo: "La mejor selección de productos para transformar cada rincón de tu hogar. Explora nuestras categorías y encuentra todo lo que necesitas para crear espacios únicos. ¡Compra ahora y haz de tu hogar un lugar especial!", 
     products: "Productos",
     categories: "Categorías",
