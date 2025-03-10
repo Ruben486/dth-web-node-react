@@ -1,0 +1,156 @@
+### Archivo de prueba para validaciones de autenticación
+### Usar con la extensión REST Client de VS Code
+
+@baseUrl = http://localhost:3000/api
+@contentType = application/json
+
+### Registro de usuario válido
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "usuario_prueba",
+  "email": "usuario@ejemplo.com",
+  "password": "Contraseña123!"
+}
+
+### Registro con nombre de usuario inválido (muy corto)
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "us",
+  "email": "usuario@ejemplo.com",
+  "password": "Contraseña123!"
+}
+
+### Registro con correo electrónico inválido
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "usuario_prueba",
+  "email": "correo-invalido",
+  "password": "Contraseña123!"
+}
+
+### Registro con contraseña débil (sin mayúsculas)
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "usuario_prueba",
+  "email": "usuario@ejemplo.com",
+  "password": "contraseña123!"
+}
+
+### Registro con contraseña débil (sin números)
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "usuario_prueba",
+  "email": "usuario@ejemplo.com",
+  "password": "Contraseña!"
+}
+
+### Registro con contraseña débil (sin caracteres especiales)
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "usuario_prueba",
+  "email": "usuario@ejemplo.com",
+  "password": "Contraseña123"
+}
+
+### Registro con contraseña débil (muy corta)
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "usuario_prueba",
+  "email": "usuario@ejemplo.com",
+  "password": "Abc1!"
+}
+
+### Inicio de sesión válido
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "usuario@ejemplo.com",
+  "password": "Contraseña123!"
+}
+
+### Inicio de sesión con correo inválido
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "correo-invalido",
+  "password": "Contraseña123!"
+}
+
+### Inicio de sesión con contraseña faltante
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "usuario@ejemplo.com"
+}
+
+### Inicio de sesión con Google
+POST {{baseUrl}}/auth/google
+Content-Type: {{contentType}}
+
+{
+  "uid": "google-id-123456",
+  "email": "usuario@gmail.com",
+  "displayName": "Usuario Google"
+}
+
+### Inicio de sesión con Google (datos incompletos)
+POST {{baseUrl}}/auth/google
+Content-Type: {{contentType}}
+
+{
+  "uid": "google-id-123456",
+  "email": "usuario@gmail.com"
+  // Falta displayName
+}
+
+### Cerrar sesión
+POST {{baseUrl}}/auth/logout
+Content-Type: {{contentType}}
+
+### Verificar token (requiere token válido en cookie)
+GET {{baseUrl}}/auth/verifytoken
+
+### Prueba de inyección SQL en login
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "usuario@ejemplo.com' OR '1'='1",
+  "password": "' OR '1'='1"
+}
+
+### Prueba de XSS en registro
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "<script>alert('XSS')</script>",
+  "email": "usuario@ejemplo.com",
+  "password": "Contraseña123!"
+}
+
+### Prueba de limitación de velocidad (ejecutar varias veces seguidas)
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "usuario@ejemplo.com",
+  "password": "contraseña_incorrecta"
+}

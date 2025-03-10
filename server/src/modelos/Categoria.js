@@ -1,7 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
-
 const CategoriaSchema = new Schema({
   descripcion: {
     type: String,
@@ -14,10 +13,10 @@ const CategoriaSchema = new Schema({
   id: {
     type: String,
     required: true,
-    default: "000",
-    index: true,
+    index: true, // esto hace que el campo no admita dupliaciones
+    
   },
   frecuente: { type: Boolean, required: true, default: false }
 });
 
-module.exports = mongoose.model("Categoria", CategoriaSchema);
+export default  mongoose.model("Categoria", CategoriaSchema);

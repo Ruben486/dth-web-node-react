@@ -1,13 +1,14 @@
-const express = require('express');
-const router = express.Router();
-const { verifyTokenAndAdmin } = require('../controllers/verifyToken');
-const {
-    addProducto,
+import express from "express";
+import { verifyTokenAndAdmin } from "../controllers/verifyToken.js";
+import {
     getProductoById,
+    addProducto,
     updateProducto,
     deleteProducto,
     getAllProductos
-} = require('../controllers/productoController');
+} from "../controllers/productoController.js";
+
+const router = express.Router();
 
 
 // Create a new product
@@ -25,4 +26,4 @@ router.delete('/:id', verifyTokenAndAdmin, deleteProducto);
 // Get all products
 router.get('/', getAllProductos);
 
-module.exports = router;
+export default router;

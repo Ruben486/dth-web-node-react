@@ -5,6 +5,7 @@ import { Modal } from "./Modal";
 import { useAuth } from "../contexts/authContext";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
+import GoogleButton from "./GoogleButton";
 interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -21,18 +22,12 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
     formState: { errors },
   } = useForm<LoginFormData>();
 
-  const { signIn, signInWithGoogle, errors: loginErrors, isLoading, isAuthenticated } = useAuth();
+  const { signIn, signWithGoogle, errors: loginErrors, isLoading, isAuthenticated } = useAuth();
 
   const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleGoogleSignIn = async () => {
-    try {
-      await signInWithGoogle();
-    } catch (error) {
-      console.error('Error al iniciar sesión con Google:', error);
-    }
-  };
+
 
   const onSubmit = async (data: LoginFormData) => {
     await signIn(data);
@@ -69,29 +64,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Iniciar Sesión">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 shadow-md">
-        {/* Botón de Google */}
-      <button
-        onClick={handleGoogleSignIn}
-        type="button"
-        className="w-full py-2 px-4 mb-4 bg-white border border-gray-300 rounded-lg 
-        text-gray-700 flex items-center justify-center gap-2 hover:bg-gray-50 
-        transition-colors duration-75 focus:outline-none focus:ring-2 
-        focus:ring-offset-2 focus:ring-gray-500"
-        disabled={isLoading}
-      >
-        <FcGoogle className="w-5 h-5" />
-        Continuar con Google
-      </button>
-
-      {/* Separador */}
-      <div className="relative my-4">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-300"></div>
-        </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white text-gray-500">O</span>
-        </div>
-      </div>
+        <GoogleButton signWithGoogle={signWithGoogle} isLoading={isLoading} />
         <div className="relative">
           <input
             type="email"
@@ -196,37 +169,3 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
 }
 
 
-// añadir componente de login para el boton de google
-const GoogleButton = ({ onClick, isLoading }: { onClick: () => void, isLoading: boolean }) => {
-  return (
-    <button
-      onClick={onClick}
-      disabled={isLoading}
-      type="button"
-      className="w-full py-2 px-4 mb-4 bg-white border border-gray-300 rounded-lg 
-      text-gray-700 flex items-center justify-center gap-2 hover:bg-gray-50 
-      transition-colors duration-75 disabled:opacity-50 disabled:cursor-not-allowed"
-    >
-      {isLoading ? (
-        <div className="flex items-center gap-2">
-          <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
-          Conectando...
-        </div>
-      ) : (
-        <>
-          <FcGoogle className="w-5 h-5" />
-          Continuar con Google
-        </>
-      )}
-    </button>
-  );
-};
-// puntos a considerar 
-// Manejo de errores robusto para diferentes casos de error de autenticación.
-// Estado de carga para mostrar feedback visual al usuario.
-// Actualización del estado de autenticación en el contexto.
-// Persistencia de datos del usuario si es necesario.
-// Manejo de tokens y sesiones.
-// Cierre apropiado del modal después de una autenticación exitosa.
-// Mensajes de feedback claros para el usuario.
-// Recuerda también manejar la desconexión y limpieza de recursos cuando sea necesario, y //asegurarte de que la configuración de Firebase esté correctamente establecida en tu proyecto

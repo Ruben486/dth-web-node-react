@@ -1,8 +1,9 @@
-const { app } = require("./app");
-require("dotenv").config();
+import app from "./app.js";
+import conectDB from "./db.js";
+import rutas from "./rutas.js";
+import "dotenv/config";
+
 const PORT = process.env.PORT || 3500 
-const conectDB = require("./db")
-const { rutas } = require("./rutas");
 
 rutas()
 

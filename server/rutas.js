@@ -1,10 +1,11 @@
-const {app} = require("./app.js");
-const userRoutes = require("./src/routes/userRoutes");
-const authRoutes = require("./src/routes/authRoutes");
-const categoriaRoutes = require("./src/routes/categoriaRoutes");
-const productoRoutes   = require("./src/routes/productoRoutes");
-const formfileupload = require("./src/routes/formFileUpload");
-const favoritoRoutes = require("./src/routes/favoritoRoutes");
+import app from "./app.js";
+import userRoutes from "./src/routes/userRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
+import categoriaRoutes from "./src/routes/categoriaRoutes.js";
+import productoRoutes from "./src/routes/productoRoutes.js";
+import formfileupload from "./src/routes/formFileUpload.js";
+import favoritoRoutes from "./src/routes/favoritoRoutes.js";
+
 const rutas = () => {
     app.use("/users",userRoutes);
     app.use('/auth', authRoutes);
@@ -14,4 +15,4 @@ const rutas = () => {
     app.use('/loadimage',formfileupload); // provisoria solo de prueba 
 }
 
-module.exports = {rutas};
+export default  rutas;

@@ -1,5 +1,5 @@
-const { serverCache } = require('../../app');
-const Producto = require('../modelos/Producto');
+import {serverCache} from "../../app.js";
+import Producto from "../modelos/Producto.js";
 
 const getAllProductos = async (req, res) => {
     try {
@@ -63,7 +63,7 @@ const updateProducto = async (req, res) => {
     }
 };
 
-module.exports = {
+export {
     getAllProductos,
     getProductoById,
     addProducto,

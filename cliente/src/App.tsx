@@ -9,12 +9,12 @@ import { scan } from 'react-scan'; // import this BEFORE react
 const queryClient = new QueryClient();
 
 function App() {
-  if (typeof window !== 'undefined') {
+  /* if (typeof window !== 'undefined') {
     scan({
       enabled: true,
       log: true, // logs render info to console (default: false)
     });
-  }
+  } */
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClient}>

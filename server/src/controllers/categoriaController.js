@@ -1,7 +1,7 @@
-const Categoria = require('../modelos/Categoria');
+import Categoria from "../modelos/Categoria.js";
 
 // Obtener todas las categorías
-exports.getCategorias = async (req, res) => {
+export const getCategorias = async (req, res) => {
     try {
         const categorias = await Categoria.find();
         res.status(200).json(categorias);
@@ -10,7 +10,7 @@ exports.getCategorias = async (req, res) => {
     }
 };
 
-exports.getCategoriasFrecuentes = async (req, res) => {
+export const getCategoriasFrecuentes = async (req, res) => {
     try {
         const categorias = await Categoria.find({frecuente: true});
         res.status(200).json(categorias);
@@ -19,7 +19,7 @@ exports.getCategoriasFrecuentes = async (req, res) => {
     }
 };
 // Obtener una categoría por ID
-exports.getCategoriaById = async (req, res) => {
+export const getCategoriaById = async (req, res) => {
     try {
         const categoria = await Categoria.findById(req.params.id);
         if (!categoria) {
@@ -32,7 +32,7 @@ exports.getCategoriaById = async (req, res) => {
 };
 
 // Crear una nueva categoría
-exports.createCategoria = async (req, res) => {
+export const createCategoria = async (req, res) => {
     try {
         const nuevaCategoria = new Categoria(req.body);
         const categoriaGuardada = await nuevaCategoria.save();
@@ -43,7 +43,7 @@ exports.createCategoria = async (req, res) => {
 };
 
 // Actualizar una categoría existente
-exports.updateCategoria = async (req, res) => {
+export const updateCategoria = async (req, res) => {
     try {
         const categoriaActualizada = await Categoria.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!categoriaActualizada) {
@@ -56,7 +56,7 @@ exports.updateCategoria = async (req, res) => {
 };
 
 // Eliminar una categoría
-exports.deleteCategoria = async (req, res) => {
+export const deleteCategoria = async (req, res) => {
     try {
         const categoriaEliminada = await Categoria.findByIdAndDelete(req.params.id);
         if (!categoriaEliminada) {
@@ -67,3 +67,12 @@ exports.deleteCategoria = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar la categoría', error });
     }
 };
+const categoriaController= {
+    getCategorias,
+    getCategoriasFrecuentes,
+    getCategoriaById,
+    createCategoria,
+    updateCategoria,
+    deleteCategoria,
+}
+export default categoriaController;

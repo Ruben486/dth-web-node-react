@@ -4,7 +4,7 @@ import { useCart } from "@/contexts/CartContext";
 import { useToast } from "./ui/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ListaDestacados from "./ListaDestacados";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const ViewProduct = ({ viewProduct, setViewProduct = null }) => {
   const { addToCart } = useCart();

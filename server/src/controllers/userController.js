@@ -1,5 +1,5 @@
-const User = require("../modelos/User");
-const bcrypt = require("bcrypt");
+import User from "../modelos/User.js";
+import bcrypt from "bcrypt";
 
 // UPDATE
 const updateUser = async (req, res) => {
@@ -51,4 +51,4 @@ const getAllUsers = async (req, res) => {
     res.status(500).json(err);
   }
 };
-module.exports = { updateUser,deleteUser,getUser,getAllUsers };
+export  { updateUser,deleteUser,getUser,getAllUsers };

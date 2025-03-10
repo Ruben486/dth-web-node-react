@@ -1,6 +1,7 @@
-const express = require("express");
+import express from "express";
+import { subirImagen } from "../librerias/cloudinary.js";
+
 const router = express.Router();
-const { subirImagen } = require("../librerias/cloudinary");
 
 router.get("/", (req, res) => {
   res.writeHead(200, { "content-type": "text/html" });
@@ -53,4 +54,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

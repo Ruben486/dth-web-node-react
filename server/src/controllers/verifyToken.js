@@ -1,6 +1,8 @@
-const User = require("../modelos/User");
-const jwt = require("jsonwebtoken");
+import User from "../modelos/User.js";
+import jwt from "jsonwebtoken";
+import "dotenv/config";
 
+const secretKey = process.env.JWT_SECRET_KEY;
 // VERIFY TOKEN
 // Esta version retorna un valor a ser usado en las siguientes funciones
 
@@ -28,7 +30,7 @@ const verifyTokenExistence = async (cookie) => {
 };
 
 // en desuso
-const verifyToken = async (headertoken) => {
+const verify_Token = async (headertoken) => {
   if (headertoken) {
     const token = headertoken.split("=")[1];
     if (!token) return false;
@@ -48,7 +50,7 @@ const verifyToken = async (headertoken) => {
         };
       }
     );
-    console.log(tokenfound);
+
     return tokenfound;
   } else {
     return false;
@@ -56,14 +58,14 @@ const verifyToken = async (headertoken) => {
 };
 
 const verifyTokenRespose = async (req, res) => {
-  const headertoken = req.headers.cookie;
+  const headertoken = req.header.cookie;
   if (headertoken) {
     const token = headertoken.split("=")[1];
     if (!token) return res.send(false);
 
     jwt.verify(token, process.env.JWT_SECRET_KEY, async (error, user) => {
       if (error) return res.send(error);
-      const userFound = await User.findById(user.id);
+      const userFound = await User.findById(user._id);
       if (!userFound) return res.sendStatus(401);
 
       return res.json({
@@ -91,7 +93,7 @@ const verifyTokenAndAuthorization = async (req, res, next) => {
 const verifyTokenAndAdmin = async (req, res, next) => {
   const headertoken = req.headers.cookie;
   const response = await verifyTokenExistence(headertoken);
-  console.log(response) 
+  console.log(response);
   // manejo la respuesta de verifyTokenExistence
   if (response.isAdmin) {
     next();
@@ -100,8 +102,45 @@ const verifyTokenAndAdmin = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  verifyToken,
+const validateToken = async (req, res, next) => {
+  const token =
+    req.cookies.token ||
+    (req.headers.authorization && req.headers.authorization.split(" ")[1]);
+
+  if (!token) {
+    return res.status(401).json({
+      success: false,
+      message: "No se proporcionò un Token",
+    });
+  }
+  try {
+    const decoded = jwt.verify(token, secretKey);
+    const userDecoded = await User.findById(decoded.id);
+    if (userDecoded) {
+      return res.status(200).json({
+        success: true,
+        user: {
+          id: decoded._id,
+          username: userDecoded.username,
+          email: userDecoded.email,
+          isAdmin: userDecoded.isAdmin,
+        },
+      });
+    }
+    return null;
+    next();
+  } catch (error) {
+    res.status(401).json({
+      success: false,
+      message: "Token inválido o expirado",
+    });
+  }
+};
+
+export {
+  verify_Token,
+  verifyTokenRespose,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
+  validateToken,
 };

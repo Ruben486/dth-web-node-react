@@ -4,6 +4,7 @@ import { Modal } from "./Modal";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "../contexts/authContext";
+import GoogleButton from "./GoogleButton";
 
 interface RegisterModalProps {
   isOpen: boolean;
@@ -26,13 +27,14 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
 
   const {
     signUp,
+    signWithGoogle,
     errors: registerErrors,
     isLoading,
     isAuthenticated,
   } = useAuth();
 
+  
   const { toast } = useToast();
-
   const onSubmit = async (data: RegisterFormData) => {
     await signUp(data);
   };
@@ -67,6 +69,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Crear Cuenta">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <GoogleButton signWithGoogle={signWithGoogle} disabled={isLoading} />
         <div className="relative">
           <input
             type="text"
@@ -151,6 +154,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
 
         <button
           type="submit"
+          disabled={isLoading}
           className={`w-full py-2 px-4 ${
             isLoading ? "bg-gray-400" : "bg-gray-800 hover:bg-pink-700"
           }  text-white rounded-lg

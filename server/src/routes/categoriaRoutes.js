@@ -1,5 +1,5 @@
-const express = require('express');
-const categoriaController = require('../controllers/categoriaController');
+import express from "express";
+import categoriaController from "../controllers/categoriaController.js";
 
 const router = express.Router();
 
@@ -20,4 +20,4 @@ router.put('/:id', categoriaController.updateCategoria);
 // Eliminar una categoría por ID
 router.delete('/:id', categoriaController.deleteCategoria);
 
-module.exports = router;
+export default router;

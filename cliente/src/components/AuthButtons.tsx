@@ -13,7 +13,8 @@ import {
 export function AuthButtons() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
+
   if (user) {
     return (
       <>
@@ -22,8 +23,10 @@ export function AuthButtons() {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <button className="flex items-center gap-2 p-2 bg-gray-200 text-gray-800 hover:bg-gray-500 hover:text-white text-sm rounded-lg transition-colors duration-75 ">
-                  <LogOut size={18} />
+                <button 
+                  onClick={logout}
+                className="flex items-center gap-2 p-2 bg-gray-200 text-gray-800 hover:bg-gray-500 hover:text-white text-sm rounded-lg transition-colors duration-75 ">
+                  <LogOut size={18}  className="w-5 h-5"/>
                 </button>
               </TooltipTrigger>
               <TooltipContent>

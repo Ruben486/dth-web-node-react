@@ -1,5 +1,5 @@
 
 export const config = {
-    nombreEmpresa: "Electro Hogar - Tienda OnLine", 
+    nombreEmpresa: "De Todo Hogar ", 
     itemsVisibles: 6,
   }

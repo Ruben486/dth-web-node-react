@@ -1,7 +1,6 @@
-const express = require('express');
-const Favorito = require('../modelos/Favorito');
-const checkUserId = require('../controllers/verifyUser');
-const favoritesControllers = require('../controllers/favoritoController');
+import express from "express";
+import checkUserId from "../controllers/verifyUser.js";
+import favoritesControllers from "../controllers/favoritoController.js";
 
 const router = express.Router();
 
@@ -18,4 +17,4 @@ router.put('/:id', checkUserId, favoritesControllers.updateFavorito
 // Delete a favorito
 router.delete('/:id', checkUserId, favoritesControllers.deleteFavorito);
 
-module.exports = router;
+export default router;

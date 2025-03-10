@@ -1,4 +1,4 @@
-import { ShoppingCart, Menu, Zap, Heart, LogOut } from "lucide-react";
+import { ShoppingCart, Menu, Zap, Heart } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -6,8 +6,6 @@ import { config } from "../constants/config";
 import { useCart } from "../contexts/CartContext";
 import { AuthButtons } from "./AuthButtons";
 import { useFavorites } from "@/contexts/FavoriteContext";
-import { Suspense } from "react";
-import Loader from "./Loader";
 
 const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();

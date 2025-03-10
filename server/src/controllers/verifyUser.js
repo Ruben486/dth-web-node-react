@@ -1,4 +1,4 @@
-const User = require("../modelos/User");
+import User from "../modelos/User.js";
 
 // Middleware to check for user ID
 async function checkUserId(req, res, next) {
@@ -15,4 +15,4 @@ async function checkUserId(req, res, next) {
     return res.status(500).json({ error: error.message });
   }
 }
-module.exports = checkUserId;
+export default checkUserId;

@@ -25,13 +25,14 @@ export const register = async (user) => {
 
 export const logoutRequest = async () => {
   try {
-     await authApi.post("/auth/logout");
-     localStorage.removeitem('user')
+     return await authApi.post("/auth/logout");
   } catch (error) {
     console.log('Error durante el Logout',error)
   }
 };
-
+export const updateGoogleUserData = async (data) => {
+  return await authApi.post("/auth/google", data);
+}
 export const verifyTokenRequest = async () => {
   return await authApi.get("/auth/verifytoken");
 };

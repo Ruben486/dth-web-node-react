@@ -1,9 +1,9 @@
-const cloudinary = require("cloudinary").v2;
-require("dotenv").config();
+import { v2 as cloudinary }  from "cloudinary";
+import "dotenv/config";
 
 cloudinary.config(process.env.CLOUDINARY_URL);
 
-const subirImagen = async (file) => {
+export const subirImagen = async (file) => {
   const uploaded = await cloudinary.uploader
     .upload(file.tempFilePath, {
       folder: "images", // Asignamos la carpeta de destino
@@ -35,4 +35,4 @@ const subirImagen = async (file) => {
 
   return {secure_url, public_id};
 };
-module.exports = { subirImagen };
+

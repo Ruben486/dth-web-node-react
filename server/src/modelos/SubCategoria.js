@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -7,7 +7,7 @@ const SubCategoriaSchema = new Schema({
         type: String,
         required: true
     },
-    codigoSistemaVentas: {
+    idSV: {
         type: String,
         required: false,
         default: null,
@@ -17,10 +17,6 @@ const SubCategoriaSchema = new Schema({
         ref: 'Categoria',
         required: true
     },
-    imagen: {
-        type: String,
-        required: false
-    }
 });
 
-module.exports = mongoose.model('SubCategoria', SubCategoriaSchema);
+export default mongoose.model('SubCategoria', SubCategoriaSchema);

@@ -1,9 +1,9 @@
-const Favorito = require('../modelos/Favorito');
-const User = require('../modelos/User');
-const Producto = require('../modelos/Producto');
+import Favorito from '../modelos/Favorito.js';
+import User from '../modelos/User.js';
+import Producto from '../modelos/Producto.js';
 
 // get all favoritos
-exports.getAllFavoritosUser =  async (req, res) => {
+export const getAllFavoritosUser =  async (req, res) => {
     try {
         const favoritos = await Favorito.find({ userId: req.body.userId });
         res.json(favoritos);
@@ -13,7 +13,7 @@ exports.getAllFavoritosUser =  async (req, res) => {
 };
 
 // ad favorto
-exports.addFavorito = async (req, res) => {
+export const addFavorito = async (req, res) => {
     const { userId, item } = req.body;
     const user = await User.findById(userId);
     const producto = await Producto.findById(item);   
@@ -28,7 +28,7 @@ exports.addFavorito = async (req, res) => {
 };
 
 // update favorito
-exports.updateFavorito = async (req, res) => {
+export const updateFavorito = async (req, res) => {
     const { id } = req.params;
     const { userId, item } = req.body;
     try {
@@ -46,7 +46,7 @@ exports.updateFavorito = async (req, res) => {
     }
 };
 // delete favorito
-exports.deleteFavorito = async (req, res) => {
+export const deleteFavorito = async (req, res) => {
     const { id } = req.params;
     const { userId } = req.body;
     try {
@@ -59,6 +59,13 @@ exports.deleteFavorito = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+const favoritesControllers ={
+    getAllFavoritosUser,
+    addFavorito,
+    updateFavorito,
+    deleteFavorito,
+}
+export default favoritesControllers;
 
 
 
