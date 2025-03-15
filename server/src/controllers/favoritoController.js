@@ -1,5 +1,5 @@
 import Favorito from '../modelos/Favorito.js';
-import User from '../modelos/User.js';
+import User from '../user/models/User.js';
 import Producto from '../modelos/Producto.js';
 
 // get all favoritos

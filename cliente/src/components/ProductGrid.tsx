@@ -1,6 +1,6 @@
 import ProductCard from "./ProductCard";
 import { Button } from "./ui/button";
-import { useState,memo } from "react";
+import { useState,memo,useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ListTodo } from "lucide-react";
 import { config }  from "../constants/config";
@@ -20,12 +20,12 @@ const ProductGrid = memo(({ selectedCategory, searchQuery = "" }: ProductGridPro
   // Filtrar productos según la categoría seleccionada
   // esta funcion es candidata a useMemo
   // useMemo(() => proceso,[] proceso es lo que se memoriza lo que retorna (lo que esta despues de flecha)
-  const filteredProducts = products.filter((product) => {
+  const filteredProducts = useCallback(products.filter((product) => {
     const matchesCategory = selectedCategory === "0000" ||
      product.categoriaId === selectedCategory;
     const matchesSearch = product.descripcion.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
-  });
+  }),[products,selectedCategory,searchQuery]);
 
   const showMore = () => {
     setVisibleProducts((prev) => Math.min(prev + 6, filteredProducts.length));

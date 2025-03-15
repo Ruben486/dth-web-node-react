@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-
+import xss from "xss";
 /**
  * Middleware para generar y verificar tokens CSRF
  * @returns {Function} - Middleware de Express
@@ -110,7 +110,38 @@ export const inputSanitizer = () => {
     next();
   };
 };
+export const advancedSanitization = () => {
+  return (req, res, next) => {
+    const sanitizeValue = (value) => {
+      if (typeof value === 'string') {
+        return xss(value, {
+          whiteList: {}, // No permitir ninguna etiqueta HTML
+          stripIgnoreTag: true,
+          stripIgnoreTagBody: ['script', 'style']
+        });
+      }
+      return value;
+    };
 
+    const sanitizeObject = (obj) => {
+      const clean = {};
+      for (const key in obj) {
+        if (typeof obj[key] === 'object' && obj[key] !== null) {
+          clean[key] = sanitizeObject(obj[key]);
+        } else {
+          clean[key] = sanitizeValue(obj[key]);
+        }
+      }
+      return clean;
+    };
+
+    if (req.body) req.body = sanitizeObject(req.body);
+    if (req.query) req.query = sanitizeObject(req.query);
+    if (req.params) req.params = sanitizeObject(req.params);
+
+    next();
+  };
+};
 /**
  * Middleware para validar el origen de las solicitudes
  * @param {Array} allowedOrigins - Orígenes permitidos
@@ -204,6 +235,7 @@ export const applySecurityMiddleware = () => {
   return [
     securityHeaders(),
     inputSanitizer(),
+    advancedSanitization(), 
     sqlInjectionProtection(),
     validateOrigin(),
     // csrfProtection() // Comentado porque requiere configuración adicional

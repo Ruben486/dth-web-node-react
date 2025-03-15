@@ -4,8 +4,7 @@ import {
   register,
   verifyTokenRequest,
   logoutRequest,
-  updateGoogleUserData,
-} from "../api/authApi";
+  updateGoogleUserData} from "../api/authApi";
 
 import Cookies from "js-cookie";
 import {
@@ -150,12 +149,13 @@ export const AuthProvider = ({ children }) => {
       } else if (error.code === "auth/cancelled-popup-request") {
         errorMessage = "Se canceló la solicitud de inicio de sesión";
       }
-
       setErrors([errorMessage]);
     } finally {
       setIsLoading(false);
     }
   };
+
+  
 
   const value = {
     user,

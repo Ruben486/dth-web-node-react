@@ -1,14 +1,13 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import User from "../modelos/User.js";
-
-import { handleError } from "../helpers/handleErrorHelper.js";
-import { authenticateUser } from "../helpers/authenticateUserHelper.js";
-import { sendResponse } from "../helpers/sendReponseHelper.js";
-import { 
-  validatePasswordStrength, 
-  validateEmail, 
-  validateUsername 
+import User from "../models/User.js";
+import { handleError } from "../../helpers/handleErrorHelper.js";
+import { authenticateUser } from "../../helpers/authenticateUserHelper.js";
+import { sendResponse } from "../../helpers/sendReponseHelper.js";
+import {
+  validatePasswordStrength,
+  validateEmail,
+  validateUsername,
 } from "../helpers/customValidationHelper.js";
 
 // user a enviar en la respuesta
@@ -21,7 +20,6 @@ const responseUser = (user) => {
   };
 };
 
-
 // el register deber verse ademas como create user signUp
 const register = async (req, res) => {
   // HAY QUE ENVOLVER Toda el proceso en un una transaccion
@@ -29,29 +27,29 @@ const register = async (req, res) => {
   session.startTransaction();
   try {
     const { username, email, password } = req.body;
-    
+
     // Validaciones personalizadas adicionales
     const emailValidation = validateEmail(email);
     if (!emailValidation.isValid) {
-      const error = new Error(emailValidation.errors.join(', '));
+      const error = new Error(emailValidation.errors.join(", "));
       error.statusCode = 400;
       throw error;
     }
-    
+
     const usernameValidation = validateUsername(username);
     if (!usernameValidation.isValid) {
-      const error = new Error(usernameValidation.errors.join(', '));
+      const error = new Error(usernameValidation.errors.join(", "));
       error.statusCode = 400;
       throw error;
     }
-    
+
     const passwordValidation = validatePasswordStrength(password);
     if (!passwordValidation.isValid) {
-      const error = new Error(passwordValidation.errors.join(', '));
+      const error = new Error(passwordValidation.errors.join(", "));
       error.statusCode = 400;
       throw error;
     }
-    
+
     // Verificar si el usuario ya existe
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -59,7 +57,7 @@ const register = async (req, res) => {
       error.statusCode = 409;
       throw error;
     }
-    
+
     // Verificar si el nombre de usuario ya existe
     /* const existingUsername = await User.findOne({ username });
     if (existingUsername) {
@@ -67,7 +65,7 @@ const register = async (req, res) => {
       error.statusCode = 409;
       throw error;
     } */
-    
+
     // Encriptar la contraseña
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -86,7 +84,7 @@ const register = async (req, res) => {
     // Confirmar la transacción
     await session.commitTransaction();
     session.endSession();
-    
+
     // Enviar respuesta exitosa
     return sendResponse(
       res,
@@ -100,24 +98,24 @@ const register = async (req, res) => {
     // Abortar la transacción en caso de error
     await session.abortTransaction();
     session.endSession();
-    
+
     // Determinar el código de estado y mensaje apropiados
     const statusCode = error.statusCode || 500;
     const message = statusCode === 500 ? "Error en el servidor" : error.message;
-    
+
     return handleError(res, statusCode, message, error);
   }
 };
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    
+
     // Validación adicional del correo electrónico
     const emailValidation = validateEmail(email);
     if (!emailValidation.isValid) {
-      return handleError(res, 400, emailValidation.errors.join(', '));
+      return handleError(res, 400, emailValidation.errors.join(", "));
     }
-    
+
     // Buscar el usuario por correo electrónico
     const user = await User.findOne({ email });
     if (!user) {
@@ -134,7 +132,7 @@ const login = async (req, res) => {
 
     // Registrar intento de inicio de sesión exitoso (podría expandirse para seguridad)
     // Aquí se podría agregar lógica para registrar IP, fecha, etc.
-    
+
     // Generar y establecer el token de autenticación
     const token = authenticateUser(res, user);
 
@@ -154,19 +152,7 @@ const login = async (req, res) => {
   }
 };
 
-// Logout
-/* const logout = (req, res) => {
-  res.cookie("token", "", {
-    httpOnly: true,
-    expires: new Date(0), // Expira inmediatamente
-    path: "/",
-  });
 
-  res.status(200).json({
-    success: true,
-    message: "Sesión cerrada correctamente",
-  });
-}; */
 // version con clearCookie
 const logout = (req, res) => {
   res.clearCookie("token").json({
@@ -178,11 +164,11 @@ const logout = (req, res) => {
 // google auth controller (googleSignIn o googleSignUp)
 const googleSignIn = async (req, res) => {
   const { uid: googleId, email, displayName } = req.body;
-  
+
   // Iniciar una transacción para garantizar la integridad de los datos
   const session = await mongoose.startSession();
   session.startTransaction();
-  
+
   try {
     // Validar los datos recibidos de Google
     if (!googleId || !email || !displayName) {
@@ -190,26 +176,26 @@ const googleSignIn = async (req, res) => {
       error.statusCode = 400;
       throw error;
     }
-    
+
     // Validar el formato del correo electrónico
     const emailValidation = validateEmail(email);
     if (!emailValidation.isValid) {
-      const error = new Error(emailValidation.errors.join(', '));
+      const error = new Error(emailValidation.errors.join(", "));
       error.statusCode = 400;
       throw error;
     }
-    
+
     // Buscar si el usuario ya existe
     const user = await User.findOne({
       email,
       googleId,
     }).session(session);
-    
+
     if (!user) {
       // Crear un nuevo usuario si no existe
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(googleId, salt);
-      
+
       const newGoogleUser = new User({
         username: displayName,
         email,
@@ -217,15 +203,15 @@ const googleSignIn = async (req, res) => {
         googleId,
         authProvider: "google",
       });
-      
+
       // Guardar el nuevo usuario
       const savedUser = await newGoogleUser.save({ session });
       const token = authenticateUser(res, savedUser);
-      
+
       // Confirmar la transacción
       await session.commitTransaction();
       session.endSession();
-      
+
       return sendResponse(
         res,
         201, // Código 201 para creación
@@ -241,13 +227,13 @@ const googleSignIn = async (req, res) => {
         user.authProvider = "google";
         await user.save({ session });
       }
-      
+
       const token = authenticateUser(res, user);
-      
+
       // Confirmar la transacción
       await session.commitTransaction();
       session.endSession();
-      
+
       return sendResponse(
         res,
         200,
@@ -261,11 +247,12 @@ const googleSignIn = async (req, res) => {
     // Abortar la transacción en caso de error
     await session.abortTransaction();
     session.endSession();
-    
+
     // Determinar el código de estado y mensaje apropiados
     const statusCode = error.statusCode || 500;
-    const message = statusCode === 500 ? "Error al iniciar sesión con Google" : error.message;
-    
+    const message =
+      statusCode === 500 ? "Error al iniciar sesión con Google" : error.message;
+
     return handleError(res, statusCode, message, error);
   }
 };

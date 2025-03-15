@@ -33,10 +33,19 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
     isAuthenticated,
   } = useAuth();
 
-  
   const { toast } = useToast();
+
   const onSubmit = async (data: RegisterFormData) => {
-    await signUp(data);
+    // Sanitize user input to prevent malicious code
+    const sanitizedData = {
+      username: data.username.replace(/[^a-zA-Z0-9 ]/g, ""),
+      email: data.email.replace(/[^a-zA-Z0-9@._-]/g, ""),
+      password: data.password.replace(/[^a-zA-Z0-9!@#$%^&*()_+]/g, ""),
+    };
+
+    // Proceed with sanitized data
+    await signUp(sanitizedData);
+    // await signUp(data);
   };
 
   const togglePasswordVisibity = () => {

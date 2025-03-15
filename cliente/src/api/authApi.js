@@ -17,8 +17,6 @@ const attachTokenToRequests = (config) => {
 export const login = async (user) => {
   return await authApi.post("/auth/login", user);
 };
-
-
 export const register = async (user) => {
   return await authApi.post("/auth/register", user);
 };
@@ -32,7 +30,7 @@ export const logoutRequest = async () => {
 };
 export const updateGoogleUserData = async (data) => {
   return await authApi.post("/auth/google", data);
-}
+};
 export const verifyTokenRequest = async () => {
   return await authApi.get("/auth/verifytoken");
 };

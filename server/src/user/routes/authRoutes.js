@@ -10,7 +10,7 @@ import {
   loginRateLimiter,
   registerRateLimiter,
   generalRateLimiter
-} from "../middlewares/rateLimitMiddleware.js";
+} from "../../middlewares/rateLimitMiddleware.js";
 
 const router = express.Router();
 

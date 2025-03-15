@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import User from "./User.js";
+import User from "../user/models/User.js";
 import Producto from "./Producto.js";
 
 const Schema = mongoose.Schema;

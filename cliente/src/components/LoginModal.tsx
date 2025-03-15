@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
-import { FcGoogle } from 'react-icons/fc'; // Importa el ícono de Google
 import { Modal } from "./Modal";
 import { useAuth } from "../contexts/authContext";
 import { useForm } from "react-hook-form";
@@ -18,19 +17,22 @@ interface LoginFormData {
 export function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const {
     register,
+    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormData>();
 
-  const { signIn, signWithGoogle, errors: loginErrors, isLoading, isAuthenticated } = useAuth();
-
+  const { signIn, signWithGoogle, errors: loginErrors, isLoading, isAuthenticated} = useAuth();
   const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
 
-
-
   const onSubmit = async (data: LoginFormData) => {
-    await signIn(data);
+    const sanitizedData = {
+      email: data.email.replace(/[^\w@.-]/g, ""),
+      password: data.password.replace(/[^\w@.-]/g, ""),
+    };
+    await signIn(sanitizedData);
+    // await signIn(data);
   };
   
   const togglePasswordVisibity = () => {
@@ -71,7 +73,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
             name="email"
             placeholder="tu@email.com"
             autoFocus
-            required
+        
             disabled={isLoading}
             className="w-full h-10 pl-10 pr-4 text-sm bg-white/50 border
              border-gray-300 rounded-lg focus:outline-none
@@ -89,6 +91,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
         {errors.email && (
           <p className="text-xs text-red-500">{errors.email.message}</p>
         )}
+          <p>{errors.email?.message}</p>
 
         <div className="relative">
           <input
@@ -113,7 +116,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
             type="button"
             onClick={togglePasswordVisibity}
             className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 hover:text-gray-600 focus:outline-none"
-            tabIndex={-1} // para eviar que el boton reciba focus al tabular
+            tabIndex={-1} // para evitar que el boton reciba focus al tabular
           >
             {showPassword ? (
               <EyeOff className="w-4 h.4" />

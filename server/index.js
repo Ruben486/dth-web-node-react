@@ -8,7 +8,8 @@ const PORT = process.env.PORT || 3500
 rutas()
 
 app.listen(PORT,() => {
-    console.log(`Server on port ${PORT}`)
+  console.log(`Server on port ${PORT}`)
 });
+
 conectDB();
  

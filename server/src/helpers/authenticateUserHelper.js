@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User  from "../modelos/User.js";
+import User  from "../user/models/User.js";
 import { generateToken } from "../librerias/token.js";
 
 const setAuthCookie = (res, token) => {

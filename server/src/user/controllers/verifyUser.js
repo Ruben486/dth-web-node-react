@@ -1,4 +1,4 @@
-import User from "../modelos/User.js";
+import User from "../models/User.js";
 
 // Middleware to check for user ID
 async function checkUserId(req, res, next) {

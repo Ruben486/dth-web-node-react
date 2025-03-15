@@ -1,5 +1,5 @@
 import express from "express";
-import checkUserId from "../controllers/verifyUser.js";
+import checkUserId from "../user/controllers/verifyUser.js";
 import favoritesControllers from "../controllers/favoritoController.js";
 
 const router = express.Router();

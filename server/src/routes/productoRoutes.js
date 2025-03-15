@@ -1,5 +1,5 @@
 import express from "express";
-import { verifyTokenAndAdmin } from "../controllers/verifyToken.js";
+import { verifyTokenAndAdmin } from "../user/controllers/verifyToken.js";
 import {
     getProductoById,
     addProducto,

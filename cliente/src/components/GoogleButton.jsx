@@ -1,14 +1,15 @@
 import { FcGoogle } from "react-icons/fc";
-
 const GoogleButton = ({ signWithGoogle, isLoading }) => {
+  
   return (
     <>
+       
       <button
-        onClick={signWithGoogle}
         type="button"
+        onClick={signWithGoogle}
         className="w-full py-2 px-4 mb-4 bg-white border border-gray-300 rounded-lg text-gray-700 
-                flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors duration-75
-                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+        flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors duration-75
+        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
         disabled={isLoading}
       >
         <FcGoogle className="w-5 h-5" />
@@ -29,7 +30,7 @@ const GoogleButton = ({ signWithGoogle, isLoading }) => {
 };
 export default GoogleButton;
 
-// puntos a considerar 
+// puntos a considerar
 // Manejo de errores robusto para diferentes casos de error de autenticación.
 // Estado de carga para mostrar feedback visual al usuario.
 // Actualización del estado de autenticación en el contexto.
@@ -37,4 +38,4 @@ export default GoogleButton;
 // Manejo de tokens y sesiones.
 // Cierre apropiado del modal después de una autenticación exitosa.
 // Mensajes de feedback claros para el usuario.
-// Recuerda también manejar la desconexión y limpieza de recursos cuando sea necesario, y //asegurarte de que la configuración de Firebase esté correctamente establecida en tu proyecto
+// Recuerda también manejar la desconexión y limpieza de recursos cuando sea necesario, y  asegurarte de que la configuración de Firebase esté correctamente establecida en tu proyecto

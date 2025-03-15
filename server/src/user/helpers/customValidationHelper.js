@@ -1,4 +1,4 @@
-import User from "../modelos/User.js";
+import User from "../models/User.js";
 
 /**
  * Verifica si un correo electrónico ya existe en la base de datos
