@@ -1,21 +1,20 @@
 import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight, Tag, Tags } from "lucide-react";
 import { useEffect, useRef, memo, useCallback } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import Loader from "./Loader";
 import { useFrequentCategories } from "../hooks/useCategories";
 import { useToast } from "./ui/use-toast";
 import { categoryIcons } from "../constants/categoryIcons";
-
+import { SectionHeader } from "./SectionHeader";
 interface CategoriesProps {
   selectedCategory: string;
   onCategorySelect: (categoryId: string) => void;
 }
 
+
 const Categories = memo(
   ({ selectedCategory, onCategorySelect }: CategoriesProps) => {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const { t } = useLanguage();
     const { toast } = useToast();
 
     const {
@@ -67,12 +66,8 @@ const Categories = memo(
     console.log("Categoria");
     return (
       <div className="container mx-auto px-8 md:px-8 py-6">
-        <div className="flex items-center gap-2 mb-6">
-          <Tag className="w-5 h-5 text-red-500" />
-          <h2 className="text-lg font-semibold text-gray-900">
-            {t("categories")}
-          </h2>
-        </div>
+        <SectionHeader Icon={Tag} title={"Categorias"} />
+
         <div className="relative">
           <Button
             variant="outline"
@@ -90,7 +85,7 @@ const Categories = memo(
               className="flex space-x-4 overflow-x-auto scrollbar-hide"
               style={{ scrollBehavior: "smooth" }}
             >
-              {categories.map((category) => {
+              {categories?.map((category) => {
                 const Icon = categoryIcons[category.id];
                 return (
                   <Button
@@ -130,5 +125,4 @@ const Categories = memo(
     );
   }
 );
-
 export default Categories;

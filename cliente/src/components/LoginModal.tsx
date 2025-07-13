@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, memo } from "react";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Modal } from "./Modal";
 import { useAuth } from "../contexts/authContext";
@@ -17,24 +17,23 @@ interface LoginFormData {
 export function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const {
     register,
-    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormData>();
 
-  const { signIn, signWithGoogle, errors: loginErrors, isLoading, isAuthenticated} = useAuth();
+  const { signIn, signWithGoogle, errors: loginErrors, isLoading, isAuthenticated } = useAuth();
   const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
 
+  
   const onSubmit = async (data: LoginFormData) => {
     const sanitizedData = {
       email: data.email.replace(/[^\w@.-]/g, ""),
       password: data.password.replace(/[^\w@.-]/g, ""),
     };
     await signIn(sanitizedData);
-    // await signIn(data);
   };
-  
+
   const togglePasswordVisibity = () => {
     setShowPassword(!showPassword);
   };
@@ -50,7 +49,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
         variant: "default",
       });
     }
-  }, [isAuthenticated, onClose, toast]);
+  }, [isAuthenticated,toast,onClose]);
 
   // Mostrar errores de login en el toaster
   useEffect(() => {
@@ -73,7 +72,6 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
             name="email"
             placeholder="tu@email.com"
             autoFocus
-        
             disabled={isLoading}
             className="w-full h-10 pl-10 pr-4 text-sm bg-white/50 border
              border-gray-300 rounded-lg focus:outline-none
@@ -92,7 +90,6 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
           <p className="text-xs text-red-500">{errors.email.message}</p>
         )}
           <p>{errors.email?.message}</p>
-
         <div className="relative">
           <input
             type={showPassword ? "text" : "password"}
@@ -119,10 +116,10 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
             tabIndex={-1} // para evitar que el boton reciba focus al tabular
           >
             {showPassword ? (
-              <EyeOff className="w-4 h.4" />
+              <EyeOff className="w-4 h-4" />
             ) : (
               <Eye className="w-4 h-4" />
-            )};
+            )}
           </button>
         </div>
         {errors.password && (
@@ -169,6 +166,6 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
       </form>
     </Modal>
   );
-}
+};
 
 

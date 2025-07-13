@@ -1,10 +1,9 @@
-import { useState } from "react";
+
 import { Search, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 
-export function SearchBar({ onSearch }) {
-  const [searchString, setSearchString] = useState("");
+function SearchBar({ searchString, setSearchString, onSearch }) {
+  
 
   const handleInputChange = (e) => {
     e.preventDefault()
@@ -61,3 +60,4 @@ export function SearchBar({ onSearch }) {
     </div>
   );
 }
+export default SearchBar;

@@ -1,3 +1,4 @@
+import React, { memo } from "react";
 import { mediosPagos } from "../constants/mediosPagos";
 import { Check, CloudCog } from "lucide-react";
 import {
@@ -9,7 +10,7 @@ import {
   CardTitle,
 } from "./ui/card";
 
-export const MediosDePago = () => {
+export const MediosDePago = memo(() => {
   return (
     <>
       <Card
@@ -44,6 +45,6 @@ export const MediosDePago = () => {
       </Card>
     </>
   );
-};
+});
 
   

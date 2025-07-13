@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import { createContext, useContext, useState, ReactNode, useEffect} from "react";
 
 interface Product {
   _id: string;
@@ -8,7 +8,9 @@ interface Product {
   urlImagen: string;
   itemsDestacados: string[];
 }
-
+type Favorites = {
+  favorites: Product[];
+}
 interface FavoriteContextType {
   favorites: Product[];
   // actions
@@ -27,7 +29,7 @@ const FavoriteContext = createContext<FavoriteContextType | undefined>(
 export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
   const [favorites, setFavorites] = useState<Product[]>([]);
 
-  const toggleFavorite = (product: Product) => {
+  const toggleFavorite  = (product: Product) => {
     
     setFavorites((prev) => {
       const isFavorited = prev.some((fav) => fav._id === product._id);
@@ -37,7 +39,21 @@ export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
       return [...prev, product];
     }); 
   };
+  const isFavoriteInStorage = () => {
+    if (localStorage.getItem("favoritos") !== null) return true;
+    return false;
+  };
 
+  const addFavoriteToStorage = (favorites:Favorites) => {
+    localStorage.setItem("favoritos", JSON.stringify(favorites));
+  };
+
+  const removeFavoritesFromStorage = () => {
+    if (isFavoriteInStorage()) {
+      localStorage.removeItem("favoritos");
+    }
+  };
+  
   useEffect(() => {
     if (isFavoriteInStorage()) {
       cargarFavoritosFromLocalStorage()
@@ -50,26 +66,14 @@ export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
     } else {
       removeFavoritesFromStorage();
     }
-  },[favorites])
+  },[favorites]);
 
   const isFavorite = (productId: string) => {
     return favorites.some((fav) => fav._id === productId);
   };
 
-  const isFavoriteInStorage = () => {
-    if (localStorage.getItem("favoritos") !== null) return true;
-    return false;
-  };
-
-  const addFavoriteToStorage = (favorites) => {
-    localStorage.setItem("favoritos", JSON.stringify(favorites));
-  };
-
-  const removeFavoritesFromStorage = () => {
-    if (isFavoriteInStorage()) {
-      localStorage.removeItem("favoritos");
-    }
-  };
+  
+  
 
   const cargarFavoritosFromLocalStorage = () => {
     setFavorites(JSON.parse(localStorage.getItem("favoritos")));

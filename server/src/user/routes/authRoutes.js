@@ -43,4 +43,5 @@ router.get('/verifytoken', validateToken);
 
 // Cerrar sesión
 router.post('/logout', logout);
+
 export default router;

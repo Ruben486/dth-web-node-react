@@ -1,9 +1,9 @@
 import { FcGoogle } from "react-icons/fc";
+
+
 const GoogleButton = ({ signWithGoogle, isLoading }) => {
-  
   return (
     <>
-       
       <button
         type="button"
         onClick={signWithGoogle}

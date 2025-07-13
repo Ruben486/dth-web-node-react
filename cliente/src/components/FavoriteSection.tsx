@@ -1,6 +1,8 @@
+import { useEffect } from "react";
+import { Star } from "lucide-react";
 import { useFavorites } from "@/contexts/FavoriteContext";
 import ProductCard from "./ProductCard";
-import { useEffect } from "react";
+import { SectionHeader } from "./SectionHeader";
 
 const FavoriteSection = () => {
   const { favorites } = useFavorites();
@@ -21,10 +23,11 @@ const FavoriteSection = () => {
   console.log("favoritos");
   return (
     <div className="container mx-auto px-8 md:px-16 py-6">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Favoritos</h2>
+      <SectionHeader Icon={Star} title={"Favoritos"} />
+
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
         {favorites.map((product) => (
-          <ProductCard key={product._id} product={{ ...product }} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </div>

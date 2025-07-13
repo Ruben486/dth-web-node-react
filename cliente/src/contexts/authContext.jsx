@@ -48,9 +48,8 @@ export const AuthProvider = ({ children }) => {
           setIsAuthenticated(true);
         }
       } catch (error) {
-        console.log("Error de verificacion");
+        console.log(error.response.data.message);
         setUser(null);
-        Cookies.remove("token");
       } finally {
         setIsLoading(false);
       }

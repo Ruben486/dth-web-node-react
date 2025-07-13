@@ -11,7 +11,7 @@ import useragent from "express-useragent"; // Importa el middleware de useragent
 import { applySecurityMiddleware } from "./src/middlewares/securityMiddleware.js";
 import { generalRateLimiter } from "./src/middlewares/rateLimitMiddleware.js";
 import { botDetection } from "./src/middlewares/botDetectionMiddleware.js";
-import "dotenv/config";
+import { config } from "dotenv";
 
 const app = express();
 export const serverCache = new nodeCache();
@@ -31,17 +31,19 @@ app.use(botDetection());
 app.use(generalRateLimiter(200, 60 * 1000)); // 200 solicitudes por minuto globalmente
 
 // Aplicar middlewares de seguridad personalizados
-app.use(applySecurityMiddleware());
+//app.use(applySecurityMiddleware());
 
 // Middleware de Arcjet (comentado)
-//app.use(arcjetMiddleware);
+// app.use(arcjetMiddleware);
 
 const corsOptions = {
   // Especifica los orígenes permitidos
   origin: [
     'http://localhost:8081',
-    'http://localhost:8082',  
-    process.env.FRONTEND_URL
+    'http://localhost:8081',
+    'http://localhost:8082',
+    'http://localhost:5173', 
+    process.env.FRONTEND_URL,
     // Agrega otros dominios permitidos según necesites
   ],
   
@@ -52,22 +54,31 @@ const corsOptions = {
   allowedHeaders: [
     'Content-Type',
     'Authorization',
-    'X-Requested-With'
+    'X-Requested-With',
+    'Origin',
+    'Accept',
   ],
   
   // Exponer estos headers al cliente
-  exposedHeaders: ['Content-Range', 'X-Content-Range'],
+  exposedHeaders: ['Content-Range', 'X-Content-Range','set-cookie'],
   
   // Permitir credenciales (cookies, headers de autorización)
   credentials: true,
   
   // Tiempo máximo que el navegador puede cachear la respuesta pre-flight
   maxAge: 86400, // 24 horas
-  
+
+  preflightContinue: false,
   // Manejo de errores
   optionsSuccessStatus: 204
 };
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 app.use(cors(corsOptions));
+
+
 
 app.use(fileUpload({
     limits: {fileSize: 1024*1024*50},

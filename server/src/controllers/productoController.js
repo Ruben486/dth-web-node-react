@@ -6,7 +6,6 @@ const getAllProductos = async (req, res) => {
         if (serverCache.productos) {
             return res.json(serverCache.productos);
         }
-
         const productos = await Producto.find();
         serverCache.productos = productos;
         res.json(productos);

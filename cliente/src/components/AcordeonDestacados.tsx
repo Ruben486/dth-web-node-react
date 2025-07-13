@@ -1,4 +1,4 @@
-import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { memo } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export const AcordeonDestacados = ({destacados}) => {
+export const AcordeonDestacados = memo(({ destacados }) => {
   return (
     <Accordion type="single" collapsible className="w-full mb-2">
       <AccordionItem value="caracteristicas">
@@ -29,4 +29,4 @@ export const AcordeonDestacados = ({destacados}) => {
       </AccordionItem>
     </Accordion>
   );
-};
+});

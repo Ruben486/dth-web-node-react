@@ -2,7 +2,6 @@
 import { useToast } from "./ui/use-toast";
 
 const NetworkError = ( error ) => {
-  console.log('error toast')
     const { toast } = useToast();
         toast({
       title: "Error",

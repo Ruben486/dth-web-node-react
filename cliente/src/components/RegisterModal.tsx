@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Modal } from "./Modal";
 import { useForm } from "react-hook-form";
@@ -16,7 +16,7 @@ interface RegisterFormData {
   password: string;
 }
 
-export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
+export const RegisterModal= memo(({isOpen,onClose}: RegisterModalProps) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -62,7 +62,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
         variant: "default",
       });
     }
-  }, [isAuthenticated, onClose, toast]);
+  }, [isAuthenticated,onClose,toast]);
 
   // Mostrar errores de registro en el toaster
   useEffect(() => {
@@ -147,10 +147,10 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
             onClick={togglePasswordVisibity}
             className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400
              hover:text-gray-600 focus:outline-none"
-            tabIndex={-1} // para eviar que el boton reciba focus al tabular
+            tabIndex={-1} // para evitar que el boton reciba focus al tabular
           >
             {showPassword ? (
-              <EyeOff className="w-4 h.4" />
+              <EyeOff className="w-4 h-4" />
             ) : (
               <Eye className="w-4 h-4" />
             )}
@@ -203,4 +203,4 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
       </form>
     </Modal>
   );
-}
+});

@@ -130,9 +130,11 @@ const validateToken = async (req, res, next) => {
     return null;
     next();
   } catch (error) {
-    res.status(401).json({
+    res.clearCookie("token").status(401).json({
       success: false,
-      message: "Token inválido o expirado",
+      error: {
+        message: "Token inválido o expirado",
+      },
     });
   }
 };

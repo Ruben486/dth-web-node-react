@@ -1,11 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { AuthProvider } from "./contexts/AuthContext";
 import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from "./contexts/CartContext";
 import { FavoriteProvider } from "./contexts/FavoriteContext";
-import { LanguageProvider } from "./contexts/LanguageContext";
-import Rutas from "./routes/Rutas";
-import { AuthProvider } from "./contexts/AuthContext";
-import { scan } from 'react-scan'; // import this BEFORE react
+
+import AppRutas from "./routes/AppRutas";
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -18,14 +19,13 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        <LanguageProvider>
           <FavoriteProvider>
             <CartProvider>
               <Toaster />
-              <Rutas />
+              <AppRutas />
             </CartProvider>
           </FavoriteProvider>
-        </LanguageProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </AuthProvider>
   );

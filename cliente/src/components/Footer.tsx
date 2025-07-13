@@ -1,5 +1,5 @@
-import { Facebook, Instagram, Twitter } from "lucide-react";
-import { memo } from "react";
+import { LuFacebook,LuInstagram,LuTwitter  } from "react-icons/lu";
+import { memo, useMemo } from "react";
 import { Button } from "./ui/button";
 
 const Footer = memo(() => {
@@ -33,22 +33,22 @@ const Footer = memo(() => {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Follow Us</h3>
+            <h3 className="font-semibold mb-4">Seguinos</h3>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon">
-                <Facebook className="h-5 w-5" />
+                <LuFacebook className="h-5 w-5" />
               </Button>
               <Button variant="ghost" size="icon">
-                <Instagram className="h-5 w-5" />
+                {useMemo(() => <LuInstagram className="h-5 w-5" />, [])}
               </Button>
               <Button variant="ghost" size="icon">
-                <Twitter className="h-5 w-5" />
+                <LuTwitter className="h-5 w-5" />
               </Button>
             </div>
           </div>
         </div>
         <div className="border-t mt-8 pt-8 text-center text-gray-600">
-          <p>&copy; 2024 AirBuy. All rights reserved.</p>
+          <p>&copy; 2025 Sinapsis Dev</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 
 interface CartItem {
   _id: string;
@@ -7,7 +13,7 @@ interface CartItem {
   urlImagen: string;
   category: string;
   quantity: number;
-  itemsDestacados: string[]
+  itemsDestacados: string[];
 }
 
 interface CartContextType {
@@ -16,15 +22,20 @@ interface CartContextType {
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
-  addCartToStorage: (cartItems:CartItem[]) => void;
+  addCartToStorage: (cartItems: CartItem[]) => void;
   removeCartFromStorage: () => void;
+  subtotal: number;
+  shipping: number;
+  total: number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-
+  const [subtotal, setSubtotal] = useState(0);
+  const [shipping, setSetshipping] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const addToCart = (product: Omit<CartItem, "quantity">) => {
     setCartItems((prevItems) => {
@@ -59,35 +70,56 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCartItems([]);
   };
 
-  const addCartToStorage = () => {
+  const addCartToStorage = useCallback(() => {
     localStorage.setItem("carrito", JSON.stringify(cartItems));
-  };
+  }, [cartItems]);
 
-  const removeCartFromStorage = () => {
-    localStorage.removeItem("carrito")
-  };
+  const removeCartFromStorage = useCallback(() => {
+    localStorage.removeItem("carrito");
+  }, []);
 
   const cargarCartFromStorage = () => {
-    setCartItems(JSON.parse(localStorage.getItem("carrito")))
+    setCartItems(JSON.parse(localStorage.getItem("carrito")));
   };
 
   useEffect(() => {
     if (localStorage.getItem("carrito") !== null) {
-      cargarCartFromStorage()
+      cargarCartFromStorage();
     }
-  },[]);
+  }, []);
 
   useEffect(() => {
     if (cartItems.length > 0) {
-      addCartToStorage()
+      addCartToStorage();
     } else {
-      removeCartFromStorage()
+      removeCartFromStorage();
     }
-  },[cartItems]);
+  }, [cartItems, addCartToStorage, removeCartFromStorage]);
+
+  useEffect(() => {
+    const subtotal = cartItems.reduce(
+      (sum, item) => sum + item.precio * item.quantity,
+      0
+    );
+    setSubtotal(subtotal);
+    const shipping = subtotal > 999 ? 0 : subtotal * 0.05; // 5% de envío
+    setSetshipping(shipping);
+    const total = subtotal + shipping; // Total con envío
+    setTotal(total);
+  }, [cartItems]);
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, updateQuantity, clearCart }}
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        clearCart,
+        subtotal,
+        shipping,
+        total,
+      }}
     >
       {children}
     </CartContext.Provider>

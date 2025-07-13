@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Ruler, LayoutList, BookCheck, Cable, Cpu } from "lucide-react";
 import { tabLabels } from "../constants/tabLabels";
 
 const ProductFeaturesTab = (props) => {
   const tabsData = props.data;
-  const classNameIcon = "h-5 w-5 text-gray-800";
+  
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   if (!tabsData || tabsData.length === 0)
     return (
@@ -16,12 +15,11 @@ const ProductFeaturesTab = (props) => {
 
   return (
     <>
-      <div className="overflow-scroll scroll-smooth">
+      <div className="overflow-scroll scroll-smooth bg-zinc-100">
         <div className="flex space-x-4 border-b">
           {/* Loop through tab data and render button for each. */}
           {tabsData.map((tab, idx) => {
             const Icon = tabLabels[idx].icon;
-            
             return (
               <>
                 {tab.content.length != 0 && (
@@ -37,7 +35,7 @@ const ProductFeaturesTab = (props) => {
                     // Change the active tab on click.
                     onClick={() => setActiveTabIndex(idx)}
                   >
-                    <Icon className={classNameIcon} /> {tab.label}
+                    <Icon className={`"h-5 w-5" ${idx === activeTabIndex ? "text-red-600" : "text-gray-800"}`} /> {tab.label}
                   </button>
                 )}
               </>

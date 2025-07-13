@@ -109,7 +109,6 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
     // Validación adicional del correo electrónico
     const emailValidation = validateEmail(email);
     if (!emailValidation.isValid) {

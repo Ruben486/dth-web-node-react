@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verificación de Correo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+      }
+      h1,
+      h3 {
+        color: gray;
+        text-align: center;
+      }
+
+      p {
+        color: white;
+        text-align: center;
+      }
+      .empresa {
+        font-size: xx-large;
+        margin-bottom: 20px;
+        
+      }
+
+      .container {
+        width: 600px;
+        height: 500px;
+        border: solid 1px rgb(46, 44, 44);
+        margin-top: 15px;
+        padding: 10px;
+      }
+
+      .verificationcode {
+        color: #be539e;
+        font-size: 90px;
+      }
+      .pie-correo
+      .fecha {
+        font-size: small;
+      }
+
+      footer {
+        color: whitesmoke;
+        margin: 5px;
+        font-size: small;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="empresa">DTH Hogar</h1>
+
+      <h3>Código de verificación de correo</h3>
+      <p>El número de verificación es:</p>
+      <p class="verificationcode">{{verificationCode}}</p>
+      <p class="fecha">{{fecha}}</p>
+      <p class="pie-correo">
+        Francisco Lopez 2096 - Ituzaingo - Corrientes - TE: 03786 -420975
+      </p>
+    </div>
+  </body>
+</html>

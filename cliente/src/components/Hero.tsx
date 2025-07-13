@@ -1,7 +1,7 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { Button } from "./ui/button";
 import { Backpack } from "lucide-react";
-import { useLanguage } from "../contexts/LanguageContext";
+
 import {motion} from "framer-motion";
 import {
   Carousel,
@@ -31,13 +31,25 @@ const heroImages = [
 ];
 
 const Hero = memo(() => {
-  const { t } = useLanguage();
+ 
   const heroHeader = "Descubrí el Hogar de tus Sueños.";
-  const lettersHeader = heroHeader.split("");
+  
+  const lettersHeader = useMemo(() => heroHeader.split(""), [heroHeader]);
 
-  const heroParrafo =
-    "Encontrá todo lo que necesitás para tu hogar en un solo lugar";
-  console.log("hero");
+  const heroParrafo = useMemo(
+    () => "Encontrá todo lo que necesitás para tu hogar en un solo lugar",
+    []
+  );
+
+  const animationProps = useMemo(
+    () => ({
+      initial: { filter: "blur(10px)", opacity: 0, y: 12 },
+      animate: { filter: "blur(0)", opacity: 1, y: 0 },
+      transition: { duration: 0.5 },
+    }),
+    []
+  );
+
   return (
     <div className="relative min-h-[500px] bg-neutral-100">
       <div className="container mx-auto px-2 py-2">
@@ -46,21 +58,23 @@ const Hero = memo(() => {
           <div className="animate-fadeIn">
             {lettersHeader.map((letter, index) => (
               <motion.h1
-                initial={{ filter: "blur(10px)", opacity: 0, y:12 }}
-                animate={{filter: "blur(0)", opacity: 1, y:0 }}
-                transition={{duration: 0.5, delay: 0.1 * index}}
+                initial={animationProps.initial}
+                animate={animationProps.animate}
+                transition={{ ...animationProps.transition, delay: 0.1 * index }}
                 key={index}
-                className={`text-3xl md:text-6xl font-bold ${index === lettersHeader.length - 1 ? "text-red-600"  : "text-gray-900"}  mb-6 inline-block`}
+                className={`text-3xl md:text-6xl font-bold ${
+                  index === lettersHeader.length - 1 ? "text-red-600" : "text-gray-900"
+                } mb-6 inline-block`}
               >
                 {letter === " " ? "\u00A0" : letter}
               </motion.h1>
             ))}
-            <p className="text-base text-gray-700 mb-8">{t("heroParrafo")}</p>
+            <p className="text-base text-gray-700 mb-8">{heroParrafo}</p>
 
             <Button
               size="default"
               className="bg-gray-800 hover:bg-pink-500 transition-colors duration-500
-               ease-in-out px-4 py-6"
+                 ease-in-out px-4 py-6"
             >
               Ver Nuestros Productos
               <Backpack className="ml-2" />
