@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { motionProps } from "../constants/motionProps";
 import { Card } from "../components/ui/card";
 import { stdBtn } from "../components/uiDesign/standarUi";
-import Loader from "../components/Loader";
+import {Loader} from "../components/Loader";
 import useProductStore from "../store/productStore";
 
 const ListaDestacados = lazy(() => import("@/components/ListaDestacados"));
@@ -12,10 +12,7 @@ const ProductFeaturesTab = lazy(
   () => import("@/components/ProductFeaturesTab")
 );
 const Header = lazy(() => import("@/components/Header"));
-// import ListaDestacados from "@/components/ListaDestacados";
-// import ProductFeaturesTab from "../components/ProductFeaturesTab";
 import { AddToCartButton } from "../components/AddToCartButton";
-// import Header from "@/components/Header";
 import { LoadImage } from "../components/LoadImage";
 import { GoBackButton } from "../components/GoBackButton";
 

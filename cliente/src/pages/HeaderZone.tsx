@@ -1,33 +1,27 @@
 import { lazy } from "react";
+import { motion } from "framer-motion";
+import { motionProps } from "../constants/motionProps";
 
-const Navbar = lazy(() =>
-  import("@/components/Navbar")
-);
+const SearchBar = lazy(() => import("@/components/SearchBar"));
+const Hero = lazy(() => import("@/components/Hero"));
 
-const SearchBar = lazy(() =>
-  import("@/components/SearchBar")
-);
-
-export const HeaderZone = ({
-  selectedCategory,
-  setSelectedCategory,
-  searchString,
-  setSearchString,
-}) => {
+const HeaderZone = ({ searchString, setSearchString }) => {
   const handleSearchString = (string: string) => {
     setSearchString(string);
   };
 
   return (
     <>
-      <Navbar />
+      
       <SearchBar
         searchString={searchString}
         setSearchString={setSearchString}
         onSearch={handleSearchString}
       />
+      <motion.div {...motionProps} >
+        <Hero />
+      </motion.div>
     </>
   );
 };
-
-
+export default HeaderZone;

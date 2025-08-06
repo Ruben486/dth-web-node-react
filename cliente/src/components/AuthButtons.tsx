@@ -2,15 +2,13 @@ import { useState, memo, useCallback } from "react";
 import { UserPlus, LogIn, LogOut } from "lucide-react";
 import { LoginModal } from "./LoginModal";
 import { RegisterModal } from "./RegisterModal";
+import { User } from "../types/types";
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-
-export const AuthButtons = memo(function AuthButtons({ user, logout }) {
+type AuthButtonsProps = {
+  user: User,
+  logout: (user) => void
+}
+export const AuthButtons = memo(function AuthButtons({ user, logout }:AuthButtonsProps) {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
@@ -35,21 +33,13 @@ export const AuthButtons = memo(function AuthButtons({ user, logout }) {
       <>
         <div className="flex items-center gap-2">
           <span>{user.username}</span>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <button
-                  onClick={logout}
-                  className="flex items-center gap-2 p-2 bg-gray-200 text-gray-800 hover:bg-gray-500 hover:text-white text-sm rounded-lg transition-colors duration-75"
-                >
-                  <LogOut size={18} className="w-5 h-5" />
-                </button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Cerrar sesión</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+
+          <button
+            onClick={logout}
+            className="flex items-center gap-2 p-2 bg-gray-200 text-gray-800 hover:bg-gray-500 hover:text-white text-sm rounded-lg transition-colors duration-75"
+          >
+            <LogOut size={18} className="w-5 h-5" />
+          </button>
         </div>
       </>
     );

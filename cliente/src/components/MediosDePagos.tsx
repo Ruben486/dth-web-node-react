@@ -1,16 +1,16 @@
-import React, { memo } from "react";
+import { memo } from "react";
+import { Check } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { mediosPagos } from "../constants/mediosPagos";
-import { Check, CloudCog } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
 
 export const MediosDePago = memo(() => {
+  type MedioPago = {
+   id: string,
+   texto: string,
+   icono: React.ComponentType<React.SVGProps<SVGSVGElement>>; 
+} 
+
+  
   return (
     <>
       <Card
@@ -24,7 +24,7 @@ export const MediosDePago = memo(() => {
         </CardHeader>
         <CardContent>
           <ul className="space-y-6">
-            {mediosPagos.map((medio, idx) => {
+            {mediosPagos.map((medio: MedioPago, idx: number) => {
               const Icono = medio.icono;
               return (
                 <li
@@ -32,7 +32,11 @@ export const MediosDePago = memo(() => {
                   className="flex h-12 gap-3 items-center space-x-2 px-2 bg-slate-100 rounded-sm"
                 >
                   <Icono className="h-6 w-6 text-gray-600" />
-                  <span className={`font-semibold ${idx === 0 ? "text-orange-600" : "text-gray-700"} `}>
+                  <span
+                    className={`font-semibold ${
+                      idx === 0 ? "text-orange-600" : "text-gray-700"
+                    } `}
+                  >
                     {medio.texto}
                   </span>
                   <Check className="h-4 w-4 text-green-500" />
@@ -46,5 +50,3 @@ export const MediosDePago = memo(() => {
     </>
   );
 });
-
-  

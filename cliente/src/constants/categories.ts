@@ -31,7 +31,7 @@ export const categories = [
     name: "Todos",
     label: "Todos",
     color: "bg-airbnb-purple",
-    icon: LayoutGrid,
+    icon: "LayoutGrid",
   },
   {
     id: 1,

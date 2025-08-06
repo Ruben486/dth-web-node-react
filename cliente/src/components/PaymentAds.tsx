@@ -4,8 +4,6 @@ import { MediosDePago } from "./MediosDePagos";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "./ui/card";

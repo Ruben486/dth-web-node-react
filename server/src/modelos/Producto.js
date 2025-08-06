@@ -9,23 +9,43 @@ const ProductoSchema = new Schema(
       required: [true, "La desdcripcion del producto es requerida"],
       trim: true,
     },
-    codigo: { type: String, required: true },
+
+    idGestion: {
+      categoria:{ type: String, required: false, default: null },
+      subRubro: { type: String, required: false, default: null },
+      producto: { type: String, required: false, default: null },
+    },
     categoriaId: {
-      type: String,
-      required: [true, "El Id de la Categoria es requerido"],
-    },
-    category: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId, 
       ref: "Categoria",
-      required: true,
-    },
-    subCategory: { type: String, required: true },
-    detalle: {
+      required: [true, "El id de la categoria es requerido"],
+      default: null,
+    }, 
+    categoria: {
       type: String,
-      required: [true, "El detalle del produto es requerido"],
+      required: false,
+      trim: true,
     },
-    porcDtoEfectivo: { type: Number, required: false, default: 0 },
-    itemsDestacados: [String],
+    
+    precio: {
+      type: Number,
+      required: [true, "El valor del producto es requerido"],
+      min: 0,
+    },
+    
+    porcDtoEfec: { type: Number, required: false, default: 0 },
+    oferta: { type: Boolean, required: true, default: false },
+    precioOferta: { type: Number, required: false, default: 0 },
+    financiadoEntrega: { type: Number, required: false, default: 0 },
+    financiadoCuotas: { type: Number, required: false, default: 0 },
+    financiadoImpCuota: { type: Number, required: false, default: 0 },
+    stock: { type: Number, required: true, default: 1 },
+    urlImagen: { type: String, required: false },
+    destacado: { type: Boolean, required: true, default: false },
+    nuevo: { type: Boolean, required: true, default: false },
+    masVendido: { type: Boolean, required: true, default: false },
+    marca: { type: String, required: false, default: null },
+    caracDestacados: [String],
     tabsData: [
       {
         label: { type: String, required: false },
@@ -37,19 +57,6 @@ const ProductoSchema = new Schema(
         ],
       },
     ],
-    precio: {
-      type: Number,
-      required: [true, "El valor del producto es requerido"],
-      min: 0,
-    },
-    precioOferta: { type: Number, required: false, default: 0 },
-    stock: { type: Number, required: true, default: 1 },
-    urlImagen: { type: String, required: false },
-    destacado: { type: Boolean, required: true, default: false },
-    oferta: { type: Boolean, required: true, default: false },
-    nuevo: { type: Boolean, required: true, default: false },
-    masVendido: { type: Boolean, required: true, default: false },
-    marca: { type: String, required: false, default: null },
   },
   { timestamps: true }
 );

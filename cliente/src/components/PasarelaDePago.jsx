@@ -21,7 +21,7 @@ export const PasarelaDePago = ({ loadWallet, setLoadWallet, onClose,user }) => {
         variant: "destructive",
       });
     }
-  }, [cartItems, toast]);
+  }, [cartItems, toast, user]);
 
   const handleMPOnReady = () => {
     console.log("Mercado Pago SDK is ready");

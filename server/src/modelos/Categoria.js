@@ -6,13 +6,10 @@ const CategoriaSchema = new Schema({
     type: String,
     required: true,
   },
-  label: {
+  
+  idGestion: {
     type: String,
-    required: true,
-  },
-  id: {
-    type: String,
-    required: true,
+    required: false,
     index: true, // esto hace que el campo no admita dupliaciones
     
   },

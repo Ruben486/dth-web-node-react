@@ -1,46 +1,40 @@
-import { useEffect, useRef, useState,memo,useCallback,lazy,useMemo } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  memo,
+  useCallback,
+  lazy,
+  useMemo,
+} from "react";
 import { useNavigate } from "react-router-dom";
+import { Edit, Eye } from "lucide-react";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
-import { Zap, Edit, Eye } from "lucide-react";
 import { LoadImage } from "./LoadImage";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import { AddToCartButton } from "./AddToCartButton";
-import { AddToFavoriteButton } from "../components/AddToFavoriteButton";
-const AcordeonDestacados = lazy(() =>
-  import("./AcordeonDestacados").then(module => ({ default: module.AcordeonDestacados || module.default }))
-);
+const AddToFavoriteButton = lazy(() => import('../components/AddToFavoriteButton'))
+const AcordeonDestacados = lazy(() => import("./AcordeonDestacados"));
+import { Product} from "../types/types"
 
-// import { AcordeonDestacados } from "./AcordeonDestacados";
-
-interface Product {
-  _id: string;
-  descripcion: string;
-  precio: number;
-  urlImagen: string;
-  category: string;
-  itemsDestacados: string[];
-}
-
-interface ProductCardProps {
-  product: Product;
-  viewInLine: boolean;
-  setViewProduct: (product: Product) => void;
-}
+interface ProductProps {
+  product: Product,
+  viewInLine?: boolean,
+  setProductToView?: (product:Product) => void
+};
 
 const ProductCard = memo(
-  ({ product, viewInLine = false, setViewProduct = null }:ProductCardProps) => {
+  ({product,viewInLine= false,setProductToView= null}: ProductProps) => {
     const { _id, descripcion, precio, urlImagen, category, itemsDestacados } =
       product;
-
-    // Memoize the product to stabilize its reference
-    const stableProduct = useMemo(() => product, [product]);
-
+ 
     const cardRef = useRef(null);
     const [imageError, setImageError] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
+      const node = cardRef.current;
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -56,12 +50,12 @@ const ProductCard = memo(
         }
       );
 
-      if (cardRef.current) {
-        observer.observe(cardRef.current);
+      if (node) {
+        observer.observe(node);
       }
       return () => {
-        if (cardRef.current) {
-          observer.unobserve(cardRef.current);
+        if (node) {
+          observer.unobserve(node);
         }
       };
     }, []);
@@ -73,9 +67,9 @@ const ProductCard = memo(
     const handleViewProduct = useCallback(
       (e: React.MouseEvent) => {
         e.stopPropagation();
-        setViewProduct(product);
+        setProductToView(product);
       },
-      [setViewProduct, product]
+      [setProductToView, product]
     );
 
     const handleNavigate = useCallback(
@@ -84,11 +78,6 @@ const ProductCard = memo(
         navigate(`/product/${_id}`);
       },
       [navigate, _id]
-    );
-
-    const MemoZap = useMemo(
-      () => <Zap className="h-8 w-8 xl:h-6 xl:w-6 text-blue-600 mb-2" />,
-      []
     );
 
     const MemoEdit = useMemo(() => <Edit className="h-3 w-3" />, []);
@@ -103,15 +92,14 @@ const ProductCard = memo(
       >
         <div className="aspect-[4/3] overflow-hidden bg-gray-100 relative">
           {imageError ? (
-            <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50">
-              {MemoZap}
-              <p className="text-sm xl:text-xs text-gray-500">ElectroHome</p>
-            </div>
+            <p className="flex justify-center items-center text-sm xl:text-xs text-gray-600">
+              {descripcion}
+            </p>
           ) : (
             <LoadImage src={urlImagen} alt={descripcion} />
           )}
           {/* Pass the memoized product to prevent unnecessary rerenders */}
-          <AddToFavoriteButton product={stableProduct} />
+          <AddToFavoriteButton product={product} />
         </div>
         <div className="p-3 flex flex-col flex-grow">
           <h3 className="font-medium text-sm xl:text-base text-gray-900 mb-2 line-clamp-2 flex-grow">
@@ -126,7 +114,7 @@ const ProductCard = memo(
             </span>
 
             <div className="flex gap-1">
-              {viewInLine && setViewProduct && (
+              {viewInLine && setProductToView && (
                 <Button
                   size="sm"
                   variant="ghost"
@@ -149,7 +137,7 @@ const ProductCard = memo(
                 size="sm"
                 variant="ghost"
                 className="h-7 w-7 xl:h-6 xl:w-6 p-0 group-hover:bg-gray-900 group-hover:text-white transition-colors duration-200"
-                product = {product}
+                product={product}
                 text=""
               />
             </div>
@@ -159,6 +147,5 @@ const ProductCard = memo(
     );
   }
 );
-
 
 export default ProductCard;

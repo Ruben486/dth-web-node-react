@@ -6,7 +6,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export const AcordeonDestacados = memo(({ destacados }) => {
+type Destacados = {
+  destacados: string[];
+}
+const AcordeonDestacados = memo(({destacados}:Destacados) => {
   return (
     <Accordion type="single" collapsible className="w-full mb-2">
       <AccordionItem value="caracteristicas">
@@ -30,3 +33,4 @@ export const AcordeonDestacados = memo(({ destacados }) => {
     </Accordion>
   );
 });
+export default AcordeonDestacados;

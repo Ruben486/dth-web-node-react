@@ -1,13 +1,14 @@
-import Navbar from "@/components/Navbar";
+
 import FavoriteSection from "@/components/FavoriteSection";
 import Footer from "@/components/Footer";
 import { GoBackButton } from "../components/GoBackButton";
+import Header from "@/components/Header";
 
 const Favorites = () => {
   return (
     <>
       <div className="min-h-screen bg-white flex flex-col">
-        <Navbar />
+        <Header />
         <main className="pt-4 flex-grow">
           <GoBackButton />
           <FavoriteSection />

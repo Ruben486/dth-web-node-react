@@ -5,24 +5,17 @@ import React, {
   useState,
   useCallback,
 } from "react";
+import { ProductCardProps } from "../types/types.ts";
+export type {ProductCardProps } from "../types/types.ts";
 
-interface CartItem {
-  _id: string;
-  descripcion: string;
-  precio: number;
-  urlImagen: string;
-  category: string;
-  quantity: number;
-  itemsDestacados: string[];
-}
 
 interface CartContextType {
-  cartItems: CartItem[];
-  addToCart: (product: Omit<CartItem, "quantity">) => void;
+  cartItems: ProductCardProps[];
+  addToCart: (product: ProductCardProps) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
-  addCartToStorage: (cartItems: CartItem[]) => void;
+  addCartToStorage: (cartItems: ProductCardProps[]) => void;
   removeCartFromStorage: () => void;
   subtotal: number;
   shipping: number;
@@ -32,12 +25,12 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<ProductCardProps[]>([]);
   const [subtotal, setSubtotal] = useState(0);
   const [shipping, setSetshipping] = useState(0);
   const [total, setTotal] = useState(0);
 
-  const addToCart = (product: Omit<CartItem, "quantity">) => {
+  const addToCart = (product: Omit<ProductCardProps, "quantity">) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item._id === product._id);
       if (existingItem) {

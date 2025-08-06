@@ -1,12 +1,11 @@
 import { memo, Suspense, lazy } from "react";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/authContext";
-import Loader from "@/components/Loader";
 
-// const Header = lazy(() => import("../components/Header"));
-// const CartSection = lazy(() => import("../components/CartSection"));
- import Header from "../components/Header";
- import CartSection from "@/components/CartSection";
+const Header = lazy(() => import("../components/Header"));
+const CartSection = lazy(() => import("../components/CartSection"));
+// import Header from "../components/Header";
+// import CartSection from "@/components/CartSection";
 
 const Cart = memo(() => {
   const location = useLocation();

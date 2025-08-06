@@ -1,8 +1,6 @@
 import { memo, useMemo } from "react";
 import { Button } from "./ui/button";
 import { Backpack } from "lucide-react";
-
-import {motion} from "framer-motion";
 import {
   Carousel,
   CarouselContent,
@@ -11,64 +9,21 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 
-const heroImages = [
-  {
-    url: "https://plus.unsplash.com/premium_photo-1680127402190-4ec85e040290?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG9nYXJlcyUyMGx1bWlub3NvcyUyMGRvbmRlJTIwc2UlMjBhcHJlY2lhbiUyMGVsZXRyZG9tZXN0aWNvc3xlbnwwfHwwfHx8MA%3D%3D",
-    alt: "Amoblamietos de Cocina ",
-  },
-  {
-    url: "https://plus.unsplash.com/premium_photo-1664201890729-a9653a3592cb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1vYmlsZXxlbnwwfHwwfHx8MA%3D%3D",
-    alt: "Telefonos celulares",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bHNpbGxvbiUyMGRlJTIwbGl2aW5nfGVufDB8fDB8fHww",
-    alt: "Sillones de Living",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1568816642854-e5a99030f9af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1vdG9zfGVufDB8fDB8fHw",
-    alt: "Motos",
-  },
-];
+import { heroImages } from "../constants/heroImages";
+import { HeroAnimatedText } from "./HeroAnimatedText";
 
 const Hero = memo(() => {
- 
-  const heroHeader = "Descubrí el Hogar de tus Sueños.";
-  
-  const lettersHeader = useMemo(() => heroHeader.split(""), [heroHeader]);
-
   const heroParrafo = useMemo(
     () => "Encontrá todo lo que necesitás para tu hogar en un solo lugar",
     []
   );
-
-  const animationProps = useMemo(
-    () => ({
-      initial: { filter: "blur(10px)", opacity: 0, y: 12 },
-      animate: { filter: "blur(0)", opacity: 1, y: 0 },
-      transition: { duration: 0.5 },
-    }),
-    []
-  );
-
   return (
     <div className="relative min-h-[500px] bg-neutral-100">
       <div className="container mx-auto px-2 py-2">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="absolute top-0 left-0 w-96 h-32 bg-blue-400 rounded-full blur-3xl opacity-30"></div>
-          <div className="animate-fadeIn">
-            {lettersHeader.map((letter, index) => (
-              <motion.h1
-                initial={animationProps.initial}
-                animate={animationProps.animate}
-                transition={{ ...animationProps.transition, delay: 0.1 * index }}
-                key={index}
-                className={`text-3xl md:text-6xl font-bold ${
-                  index === lettersHeader.length - 1 ? "text-red-600" : "text-gray-900"
-                } mb-6 inline-block`}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.h1>
-            ))}
+          <section>
+            <HeroAnimatedText />
             <p className="text-base text-gray-700 mb-8">{heroParrafo}</p>
 
             <Button
@@ -83,11 +38,11 @@ const Hero = memo(() => {
             <div className="absolute top-80 left-10 inset-0 flex justify-end items-center">
               <div className="w-96 h-32 bg-pink-300 rounded-full blur-3xl opacity-30"></div>
             </div>
-          </div>
+          </section>
           <div className="relative w-full max-w-xl mx-auto">
             <Carousel className="w-full">
               <CarouselContent>
-                {heroImages.map((image, index) => (
+                {heroImages?.map((image, index) => (
                   <CarouselItem key={index}>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                       <img

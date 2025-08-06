@@ -1,23 +1,23 @@
 import { useState, memo, useEffect, lazy, Suspense, useMemo, useCallback } from "react";
 import { Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import useProductStore from "../store/productStore";
-import ProductCard from "./ProductCard";
-const ViewProduct = lazy(() => import("./ViewProduct"));
-// import ViewProduct from "./viewProduct";
-import { useScreenSize } from "../hooks/useScreenSizes";
-import { SectionHeader } from "./SectionHeader";
+import {Loader} from "./Loader";
 
-type BreakPoint = {
-  breakPoint: number;
-}
+const ProductCard = lazy(() => import("./ProductCard"))
+const ViewProduct = lazy(() => import("./ViewProduct"));
+const SectionHeader = lazy(() => import("./SectionHeader"));
+import { useScreenSize } from "../hooks/useScreenSizes";
+import { Product} from "../types/types";
+
 const FeaturedProducts = memo(() => {
   const { productosDestacados } = useProductStore();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [viewProduct, setViewProduct] = useState(null);
+  const [viewInLine, setViewInLine] = useState<boolean>(true)
+  const [productToView, setProductToView]= useState<Product | null>(null);
   const [itemsPerView, setItemsperView] = useState(4);
-  const { width, height } = useScreenSize();
+  const { width } = useScreenSize();
 
-  let breakPoint: BreakPoint 
+  let breakPoint: number
   if (width < 769) {
     breakPoint = 768; // Mobile breakpoint
   } else if (width < 990) {
@@ -51,7 +51,7 @@ const FeaturedProducts = memo(() => {
     setCurrentIndex(index);
   }, []);
 
-  const memoizedSetViewProduct = useCallback(setViewProduct, []);
+  const memoizedSetProductToView = useCallback(setProductToView, []);
 
   const classNameEnabled = "text-gray-700 border-gray-300 hover:bg-gray-100"
   const classNameDisabled = "text-gray-400 border-gray-200 cursor-not-allowed"
@@ -66,7 +66,7 @@ const FeaturedProducts = memo(() => {
 
   return (
     <>
-      <section className=" md:px-3 py-4 bg-gradient-to-tr from-green-50 to-cyan-50">
+      <section className=" p-3 bg-gradient-to-tr from-green-50 to-cyan-50">
         {/* zona titulo */}
         <section className="flex md:flex-row my-2 items-center justify-between">
           <SectionHeader Icon={Sparkles} title={"Productos Destacados"} />
@@ -110,8 +110,8 @@ const FeaturedProducts = memo(() => {
                 <ProductCard
                   key={product._id}
                   product={product}
-                  viewInLine={true}
-                  setViewProduct={memoizedSetViewProduct}
+                  viewInLine={viewInLine}
+                  setProductToView={memoizedSetProductToView}
                 />
               </div>
             ))}
@@ -132,11 +132,11 @@ const FeaturedProducts = memo(() => {
         </section>
 
         {/* zona detalle */}
-        <Suspense fallback={<div>Loading...</div>}>
-          {viewProduct && (
+        <Suspense fallback={<Loader />}>
+          {productToView && (
             <ViewProduct
-              viewProduct={viewProduct}
-              setViewProduct={setViewProduct}
+              viewProduct={productToView}
+              setViewProduct={setProductToView}
             />
           )}
         </Suspense>

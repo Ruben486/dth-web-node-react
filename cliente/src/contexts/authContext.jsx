@@ -10,7 +10,6 @@ import Cookies from "js-cookie";
 import {
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../firebase/config";
 
@@ -153,8 +152,6 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(false);
     }
   };
-
-  
 
   const value = {
     user,

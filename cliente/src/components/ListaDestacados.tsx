@@ -6,7 +6,7 @@ const ListaDestacados = ({ itemsDestacados }) => {
         Caracteristicas destacadas:
         </h3>
       
-        {itemsDestacados.map((item, idx) => {
+        {itemsDestacados.map((item:string, idx:number) => {
           return (
             <li key={idx} className="text-sm text-gray-600 flex items-center gap-2">
               <span className="w-1 h-1 bg-gray-400 rounded-full"></span>

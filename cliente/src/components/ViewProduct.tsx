@@ -1,23 +1,13 @@
+import { memo, useMemo, useCallback } from "react";
+import { motion } from "framer-motion";
 import { CreditCard, BookmarkCheck, EyeOff } from "lucide-react";
 import { Button } from "./ui/button";
 import ListaDestacados from "./ListaDestacados";
 import { LoadImage } from "./LoadImage";
-import { motion } from "framer-motion";
 import { AddToCartButton } from "./AddToCartButton";
-import { memo, useMemo, useCallback } from "react";
 import { motionProps } from "../constants/motionProps"
 import { stdBtn} from "./uiDesign/standarUi"
-
-type Product = {
-  _id: string,
-  descripcion: string,
-  precio: number,
-  urlImagen: string,
-  category: string,
-  itemsDestacados: string[],
-  detalle?: string, 
-  porcDtoEfectivo?: number,
-};
+import { Product} from '../types/types';
 
 type ViewProductProps = {
   viewProduct: Product;
@@ -75,8 +65,6 @@ const ViewProduct = memo(({ viewProduct, setViewProduct = null }:ViewProductProp
                 </h3>
                 <p className="text-sm text-gray-500">{memoizedViewProduct?.category}</p>
               </div>
-
-              <p className="text-gray-600">{memoizedViewProduct?.detalle}</p>
 
               <div className="space-y-3">
                 <div className="flex items-center gap-2">

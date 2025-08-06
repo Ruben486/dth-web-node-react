@@ -1,11 +1,7 @@
-import { useEffect, useState, useMemo, lazy } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState, useMemo} from "react";
 import { useCart } from "@/contexts/CartContext";
 import { ShoppingCart } from "lucide-react";
-// const GoBackButton = lazy(() => import("./GoBackButton"));
-// const CartItemsList = lazy(() => import("./CartItemsList"));
-// const SectionHeader = lazy(() => import("./SectionHeader"));
-// const CartTotals = lazy(() => import("./CartTotals"));
+
 import { GoBackButton } from "./GoBackButton";
 import { CartItemsList } from "./CartItemsList";
 import { SectionHeader } from "./SectionHeader";
@@ -15,7 +11,6 @@ import { PaymentProcess } from "./PaymentProcess";
 const CartSection = ({ user }) => {
   const { cartItems, total } = useCart();
   const [paymentProcess, setPaymentProcess] = useState(false);
-  const [processStep, setProcessStep] = useState("loadWallet");
 
   const memoizedGoBackButton = useMemo(() => <GoBackButton />, []);
   const memoizedSectionHeader = useMemo(
@@ -23,8 +18,7 @@ const CartSection = ({ user }) => {
     []
   );
   const memoizedCartItemsList = useMemo(() => <CartItemsList />, []);
-  const navigate = useNavigate();
-
+  
   const handlePaymentProcess = () => {
     setPaymentProcess(true);
   };
@@ -51,9 +45,7 @@ const CartSection = ({ user }) => {
   }
   return (
     <section className="container mx-auto px-1 py-2">
-      
         {memoizedGoBackButton}
-
         {/* icon y titulo */}
         <div className="px-3 my-4 flex gap-2 items-Start justify-normal">
           {memoizedSectionHeader}
@@ -96,8 +88,6 @@ const CartSection = ({ user }) => {
                     user={user}
                     isOpen={paymentProcess}
                     onClose={closePaymentProcess}
-                    processStep={processStep}
-                    setProcessStep={setProcessStep}
                   />
                 )}
               </div>

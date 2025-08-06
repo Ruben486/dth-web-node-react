@@ -1,13 +1,6 @@
 import { createContext, useContext, useState, ReactNode, useEffect} from "react";
+import { Product} from "../types/types"
 
-interface Product {
-  _id: string;
-  descripcion: string;
-  precio: number;
-  category: string;
-  urlImagen: string;
-  itemsDestacados: string[];
-}
 type Favorites = {
   favorites: Product[];
 }
