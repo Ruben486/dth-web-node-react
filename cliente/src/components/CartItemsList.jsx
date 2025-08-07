@@ -1,5 +1,5 @@
 import { memo } from "react";
-import CartItemCard from "./CartItemCard";
+import  CartItemCard  from "./CartItemCard"
 import { useCart } from "../contexts/CartContext";
 
 export const CartItemsList = memo(() => {

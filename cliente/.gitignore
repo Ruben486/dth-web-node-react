@@ -26,3 +26,4 @@ hexagonal.js
 *.njsproj
 *.sln
 *.sw?
+*.million

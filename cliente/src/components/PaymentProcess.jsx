@@ -9,8 +9,7 @@ export const PaymentProcess = ({
 }) => {
   const [loadWallet, setLoadWallet] = useState(true);
 
-  
-  return (
+    return (
     <>
       <PasarelaDePago
         loadWallet={loadWallet}

@@ -32,7 +32,6 @@ const Offers = memo(() => {
     <>
       <section className="mx-auto py-4">
         <SectionHeader Icon={HandCoins} title={"Ofertas Especiales"} />
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 align-center">
           {offers.map((offer:Offer) => (
             <OfferProductCard key={offer._id} offer={offer} />

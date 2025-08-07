@@ -6,7 +6,6 @@ import React, {
   useCallback,
 } from "react";
 import { ProductCardProps } from "../types/types.ts";
-export type {ProductCardProps } from "../types/types.ts";
 
 
 interface CartContextType {
