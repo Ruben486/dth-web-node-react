@@ -35,22 +35,21 @@ const EmptyCart = () => {
 type PaymenComponentProps = {
   total: number,
   user: string,
-  handlePaymentProcess: () => void,
   paymentProcess: boolean,
-  closePaymentProcess: () => void,
+  setPaymentProcess: (value:boolean) => void,
 }
-const PaymentComponent = ({ total, user, handlePaymentProcess,
-  paymentProcess, closePaymentProcess }: PaymenComponentProps) => {
+const PaymentComponent = ({ total, user, paymentProcess,
+  setPaymentProcess }: PaymenComponentProps) => {
   return (
     <>
       {total > 0 && (
         <button
-          className={`w-full py-3 rounded-lg font-medium ${!user
+          className={`w-full py-3 rounded-lg font-medium ${(!user || paymentProcess)
             ? "bg-gradient-to-r from-slate-300 to-cyan-100 hover:cursor-not-allowed"
             : " bg-gradient-to-r from-airbnb-red to-orange-400 text-white hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:cursor-pointer"
             }`}
-          disabled={!user}
-          onClick={handlePaymentProcess}
+          disabled={!user || paymentProcess}
+          onClick={() => setPaymentProcess(true)}
         >
           Proceder a la Compra
         </button>
@@ -66,8 +65,7 @@ const PaymentComponent = ({ total, user, handlePaymentProcess,
       {paymentProcess && (
         <PaymentProcess
           user={user}
-          isOpen={paymentProcess}
-          onClose={closePaymentProcess}
+          setPaymentProcess={setPaymentProcess}
         />
       )
       }
@@ -79,15 +77,12 @@ const PaymentComponent = ({ total, user, handlePaymentProcess,
 type CartWithItemsProps = {
   items: JSX.Element,
   user: string,
-  total: number,
-  handlePaymentProcess: () => void,
   paymentProcess: boolean,
-  closePaymentProcess: () => void,
+  setPaymentProcess: (value: boolean) => void,
+  
 }
-const CartWithItems = ({ items, user, total,
-  handlePaymentProcess,
-  paymentProcess,
-  closePaymentProcess }: CartWithItemsProps) => {
+const CartWithItems= ({ items, user, paymentProcess,setPaymentProcess}: CartWithItemsProps) => {
+  const { total } = useCart();
   return (
     <section className="container mx-auto px-1 py-2">
       <div className="flex flex-col md:flex-row items-start px-3 justify-between gap-4">
@@ -99,9 +94,8 @@ const CartWithItems = ({ items, user, total,
               <CartTotals />
               <PaymentComponent total={total}
                 user={user}
-                handlePaymentProcess={handlePaymentProcess}
                 paymentProcess={paymentProcess}
-                closePaymentProcess={closePaymentProcess}
+                setPaymentProcess={setPaymentProcess}
               />
             </div>
           </div>
@@ -114,20 +108,15 @@ const CartWithItems = ({ items, user, total,
 // Componente Principal //
 
 const CartSection = ({ user }) => {
-  const { cartItems, total } = useCart();
-const [paymentProcess, setPaymentProcess] = useState(false);  
+  const { cartItems } = useCart();
+  const [paymentProcess, setPaymentProcess] = useState(false);
   const memoizedSectionHeader = useMemo(
     () => <SectionHeader Icon={ShoppingCart} title={"Carrito de Compras"} />
     , []);
 
   const memoizedGoBackButton = useMemo(() => <GoBackButton />, []);
   const memoizedCartItemsList = useMemo(() => <CartItemsList />, []);
-  const handlePaymentProcess = () => {
-    setPaymentProcess(true);
-  };
-  const closePaymentProcess = () => {
-    setPaymentProcess(false);
-  };
+
 
   useEffect(() => {
     // Desplázate a la parte superior al cargar el componente
@@ -143,10 +132,8 @@ const [paymentProcess, setPaymentProcess] = useState(false);
         : <CartWithItems
           items={memoizedCartItemsList}
           user={user}
-          total={total}
-          handlePaymentProcess={handlePaymentProcess}
           paymentProcess={paymentProcess}
-          closePaymentProcess={closePaymentProcess}
+          setPaymentProcess={setPaymentProcess}
         />}
     </section>
   );

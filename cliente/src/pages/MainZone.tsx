@@ -1,6 +1,6 @@
 import { lazy } from "react";
 const Categories = lazy(() => import("@/components/Categories"));
-const ProductGrid = lazy(() => import("@/components/ProductGrid"));
+const ProductGrid = lazy(() => import("@/components/product/ProductGrid"));
 
 const MainZone = ({
   selectedCategory,

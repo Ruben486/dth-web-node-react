@@ -1,8 +1,7 @@
 import { create } from "zustand";
+import { dthDBProducts} from "../../../data/products";
 
-import { dthDBProducts} from "../data/products";
-
-const useProductStore = create((set) => ({
+export const useProductStore = create((set) => ({
   products: dthDBProducts,
 
   productosDestacados: dthDBProducts.filter(product => {
@@ -34,4 +33,4 @@ const useProductStore = create((set) => ({
     set((state) => state.products.find((product) => product.id === productId)),
 }));
 
-export default useProductStore;
+

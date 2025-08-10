@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Zap, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { config } from "../constants/config";
+import { config } from "../config/config";
 import { useCart } from "../contexts/CartContext";
 import { useAuth } from "@/contexts/authContext";
 

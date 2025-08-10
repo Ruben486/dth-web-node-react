@@ -337,14 +337,14 @@ export const dthDBProducts = [
   },
   {
     _id: "679bc1526a20c1cc25f2055b",
-    descripcion: "Smart Display",
+    descripcion: "Monitor Digital inteligente",
     codigo: "4200",
     categoriaId: "200",
     category: "Electrónicos",
     detalle:
       "Control your smart home with this smart display. Features voice control and video calling.",
       porcDtoEfectivo: 9,
-      itemsDestacados: [
+    caracDestacados: [
         "Control por app",
         "Múltiples modos",
         "Precalentamiento rápido",

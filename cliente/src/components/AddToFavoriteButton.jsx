@@ -4,7 +4,6 @@ import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
 import { useCallback, memo } from "react";
 
-
 export const AddToFavoriteButton = memo(({ product }) => {
   const { toggleFavorite, isFavorite } = useFavorites();
   const { toast } = useToast();

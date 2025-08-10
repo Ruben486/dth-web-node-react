@@ -78,8 +78,6 @@ app.use((req, res, next) => {
 });
 app.use(cors(corsOptions));
 
-
-
 app.use(fileUpload({
     limits: {fileSize: 1024*1024*50},
     useTempFiles: true,

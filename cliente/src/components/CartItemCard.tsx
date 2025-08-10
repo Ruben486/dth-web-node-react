@@ -1,5 +1,5 @@
 import { LucideProps, Minus, Plus, Trash2 } from "lucide-react";
-import { LoadImage } from "./LoadImage";
+import { LoadImage } from "./product/LoadImage";
 import { useCart } from "../contexts/CartContext";
 
 const ItemImg = ({ url, descripcion }) => {
@@ -57,7 +57,7 @@ const ItemInfoZona3 = ({ id, quantity, precio, updateQuantity }) => {
         </Zona3Buttons>
         <span 
           className="text-xl font-semibold w-10 h-10 text-center text-pink-800 
-                     border border-gray-400 rounded-full bg-slate-200"
+                     border-2 border-gray-100 rounded-full bg-slate-200"
         >
           {quantity}
         </span>

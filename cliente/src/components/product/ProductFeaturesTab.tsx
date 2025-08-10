@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { tabLabels } from "../constants/tabLabels";
+import { tabLabels } from "../../constants/tabLabels";
 
 const ProductFeaturesTab = (props) => {
   const tabsData = props.data;

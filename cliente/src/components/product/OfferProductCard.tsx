@@ -1,20 +1,13 @@
-import { Card } from "./ui/card";
+import { Card } from "../ui/card";
 import { Clock} from "lucide-react";
 import { LoadImage } from "./LoadImage";
 import { AddToCartButton } from "./AddToCartButton";
+import {Product} from './types/productTypes';
 
-type Offer = {
-  _id: string;
-  descripcion: string;
-  detalle: string;
-  precio: number;
-  precioOferta: number;
-  urlImagen: string;
-  category: string;
-  itemsDestacados: string[];
-  masVendido?: boolean;
+type OfferProductCardProps = {
+  offer: Product;
 };
-const OfferProductCard = ({ offer }) => {
+const OfferProductCard = ({ offer }:OfferProductCardProps) => {
   const endTime = "72h";
   return (
     <Card

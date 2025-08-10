@@ -34,6 +34,13 @@ export const products = [
       image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5",
       description:
       "Keep your food fresh with this smart refrigerator. Features touchscreen interface and inventory management.",
+      caracDestados: [
+        "Marca: Philco",
+        "Modelo: AZ-400- Inverter",
+        "Tipo de Producto: Auriculares",
+        "Garantia del Proveedor: 1 año",
+        "Origen: Argentina",
+      ],
       tabsData: [
         {
           label: "Características",
@@ -155,12 +162,19 @@ export const products = [
     },
     {
       id: 8,
-      name: "Smart Display",
+      name: "Monitr Digital inteligente",
       price: 899.99,
       category: "Electronics",
       image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334",
       description:
       "Control your smart home with this smart display. Features voice control and video calling.",
+      caracDestacados: [
+        "Marca: SmartTech",
+        "Modelo: Display-2023",
+        "Tipo de Producto: Pantalla Inteligente",
+        "Garantia del Proveedor: 1 año",
+        "Origen: Estados Unidos",
+      ],
     },
     {
       id: 9,
@@ -170,6 +184,13 @@ export const products = [
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e",
       description:
       "Connect all your smart devices with this smart home hub. Features compatibility with multiple brands.",
+      caracDestados: [
+        "Marca: SmartHome",
+        "Modelo: Hub-2023",
+        "Tipo de Producto: Hub de Conexión",
+        "Garantia del Proveedor: 2 años",
+        "Origen: Estados Unidos",
+      ],
     },
     {
       id: 10,

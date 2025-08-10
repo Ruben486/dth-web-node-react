@@ -1,13 +1,12 @@
 import { useState, memo, useEffect, lazy, Suspense, useMemo, useCallback } from "react";
 import { Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
-import useProductStore from "../store/productStore";
-import {Loader} from "./Loader";
-
+import {Loader} from "../Loader";
 const ProductCard = lazy(() => import("./ProductCard"))
 const ViewProduct = lazy(() => import("./ViewProduct"));
-const SectionHeader = lazy(() => import("./SectionHeader"));
-import { useScreenSize } from "../hooks/useScreenSizes";
-import { Product} from "../types/types";
+const SectionHeader = lazy(() => import("../SectionHeader"));
+import {useProductStore} from "./store/productStore";
+import { useScreenSize } from "../../hooks/useScreenSizes";
+import { Product} from "../../types/types";
 
 const FeaturedProducts = memo(() => {
   const { productosDestacados } = useProductStore();

@@ -10,13 +10,13 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Edit, Eye } from "lucide-react";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Card } from "./ui/card";
-import { Button } from "./ui/button";
+import { Card } from "../ui/card";
+import { Button } from "../ui/button";
 import { LoadImage } from "./LoadImage";
 import { AddToCartButton } from "./AddToCartButton";
-const AddToFavoriteButton = lazy(() => import('../components/AddToFavoriteButton'))
+const AddToFavoriteButton = lazy(() => import('../AddToFavoriteButton'))
 const AcordeonDestacados = lazy(() => import("./AcordeonDestacados"));
-import { Product} from "../types/types"
+import { Product} from "./types/productTypes";
 
 interface ProductProps {
   product: Product,
@@ -26,7 +26,7 @@ interface ProductProps {
 
 const ProductCard = memo(
   ({product,viewInLine= false,setProductToView= null}: ProductProps) => {
-    const { _id, descripcion, precio, urlImagen, category, itemsDestacados } =
+    const { _id, descripcion, precio, urlImagen, category, caracDestacados } =
       product;
  
     const cardRef = useRef(null);
@@ -107,7 +107,7 @@ const ProductCard = memo(
           </h3>
           <p className="text-xs text-gray-450 mb-1">{category}</p>
           {/* accordion */}
-          <AcordeonDestacados destacados={itemsDestacados} />
+          <AcordeonDestacados destacados={caracDestacados} />
           <div className="flex items-center justify-between gap-2 mt-auto">
             <span className={`text-xl xl:text-xl font-semibold`}>
               ${precio}

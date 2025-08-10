@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 import { motionProps } from "../constants/motionProps";
 import { Card } from "../components/ui/card";
 import { stdBtn } from "../components/uiDesign/standarUi";
-import {Loader} from "../components/Loader";
-import useProductStore from "../store/productStore";
+import { Loader } from "../components/Loader";
+import {useProductStore} from "../components/product/store/productStore";
 
-const ListaDestacados = lazy(() => import("@/components/ListaDestacados"));
+const ListaDestacados = lazy(() => import("@/components/product/ListaDestacados"));
 const ProductFeaturesTab = lazy(
-  () => import("@/components/ProductFeaturesTab")
+  () => import("@/components/product/ProductFeaturesTab")
 );
 const Header = lazy(() => import("@/components/Header"));
-import { AddToCartButton } from "../components/AddToCartButton";
-import { LoadImage } from "../components/LoadImage";
+import { AddToCartButton } from "../components/product/AddToCartButton";
+import { LoadImage } from "../components/product/LoadImage";
 import { GoBackButton } from "../components/GoBackButton";
 
 const ProductDetail = memo(() => {
@@ -53,8 +53,8 @@ const ProductDetail = memo(() => {
         <Suspense fallback={<Loader />}>
           <Header />
         </Suspense>
+        <GoBackButton />
         <main className="flex flex-col my-2">
-          <GoBackButton />
 
           {/* zona de datos */}
           <div className="md:h-[90%]">

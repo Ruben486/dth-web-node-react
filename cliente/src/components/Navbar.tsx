@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ShoppingCart, Menu, Zap, Heart } from "lucide-react";
 import { Button } from "./ui/button";
 
-import { config } from "../constants/config";
+import { config } from "../config/config";
 import { useCart } from "../contexts/CartContext";
 import { AuthButtons } from "./AuthButtons";
 import { useFavorites } from "@/contexts/FavoriteContext";

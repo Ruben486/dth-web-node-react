@@ -1,6 +1,10 @@
 import { memo } from "react";
+type LoadImageProps = {
+  src: string;
+  alt?: string;
+};
 
-export const LoadImage = memo(({ src, alt }) => {
+export const LoadImage = memo(({ src, alt=''}:LoadImageProps) => {
   return (
     <>
       <img

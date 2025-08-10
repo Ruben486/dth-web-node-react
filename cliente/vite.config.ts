@@ -9,9 +9,10 @@ export default defineConfig(({ mode }) => ({
     port: 5173,
   },
   plugins: [
-    react(),millionLint.vite()
+    react(),
+    // millionLint.vite()
   ],
-    resolve: {
+  resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },

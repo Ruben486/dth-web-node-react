@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const GoBackButton = memo(() => {
   const navigate = useNavigate();
   return (
-    <div className="container mx-auto px-4 py-2">
+    
       <Button
         variant="ghost"
         onClick={() => navigate(-1)}
@@ -16,6 +16,6 @@ export const GoBackButton = memo(() => {
         <ArrowLeft className="mr-2 h-5 w-5" />
         Retornar
       </Button>
-    </div>
+    
   );
 });

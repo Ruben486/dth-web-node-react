@@ -1,32 +1,37 @@
 import { memo, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import { CreditCard, BookmarkCheck, EyeOff } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import ListaDestacados from "./ListaDestacados";
 import { LoadImage } from "./LoadImage";
 import { AddToCartButton } from "./AddToCartButton";
-import { motionProps } from "../constants/motionProps"
-import { stdBtn} from "./uiDesign/standarUi"
-import { Product} from '../types/types';
+import { motionProps } from "../../constants/motionProps"
+import { stdBtn } from "../uiDesign/standarUi"
+import { Product } from './types/productTypes';
 
 type ViewProductProps = {
   viewProduct: Product;
   setViewProduct?: (product: Product) => void;
 };
-const ViewProduct = memo(({ viewProduct, setViewProduct = null }:ViewProductProps) => {
+
+const LoadImageComponent = ({ img, alt }) => {
+  return (
+
+    <div className="w-full md:w-[60%]">
+      <div className="aspect-[4/3] relative overflow-hidden rounded-lg shadow-sm">
+        <LoadImage src={img} alt={alt} />
+      </div>
+    </div>
+  )
+};
+
+const ViewProduct = memo(({ viewProduct, setViewProduct = null }: ViewProductProps) => {
 
   const memoizedViewProduct = useMemo(() => viewProduct, [viewProduct]);
 
   const discountedPrice = useMemo(() => {
     return memoizedViewProduct?.precio * (1 - memoizedViewProduct?.porcDtoEfectivo / 100);
   }, [memoizedViewProduct]);
-
-  const memoizedLoadImage = useMemo(() => (
-    <LoadImage
-      src={memoizedViewProduct?.urlImagen}
-      alt={memoizedViewProduct?.descripcion}
-    />
-  ), [memoizedViewProduct?.urlImagen, memoizedViewProduct?.descripcion]);
 
 
   const handleViewProduct = useCallback((e) => {
@@ -36,17 +41,14 @@ const ViewProduct = memo(({ viewProduct, setViewProduct = null }:ViewProductProp
 
   return (
     <>
-      <motion.div    
-      {...motionProps}>
+      <motion.div
+        {...motionProps}>
+
         <div className="w-full overflow-hidden max-w-6xl mx-auto relative">
           <div className="flex flex-col md:flex-row md:gap-8 justify-between p-6">
-            {/* zona izquierda imagen de producto */}
+            <LoadImageComponent img={viewProduct.urlImagen} alt={viewProduct.descripcion} />
 
-            <div className="w-full md:w-[60%]">
-              <div className="aspect-[4/3] relative overflow-hidden rounded-lg shadow-sm">
-                {memoizedLoadImage}
-              </div>
-            </div>
+            {/* Imagen del producto */}
             <Button
               size="sm"
               variant="ghost"
@@ -80,21 +82,24 @@ const ViewProduct = memo(({ viewProduct, setViewProduct = null }:ViewProductProp
                     {memoizedViewProduct?.porcDtoEfectivo}% OFF)
                   </span>
                 </div>
+                {memoizedViewProduct?.caracDestacados  &&
+                  <ListaDestacados
+                    itemsDestacados={memoizedViewProduct?.caracDestacados}
+                  />
+                }
 
-                <ListaDestacados
-                  itemsDestacados={memoizedViewProduct.itemsDestacados}
-                />
                 <AddToCartButton
                   size="default"
                   variant="default"
                   className={`"w-full md:w-auto transition-colors duration-200" ${stdBtn.className} }`}
-                  product= {viewProduct}
+                  product={viewProduct}
                   text="Agregar al carrito"
                 />
               </div>
             </section>
           </div>
         </div>
+
       </motion.div>
     </>
   );

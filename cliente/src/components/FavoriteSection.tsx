@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Star } from "lucide-react";
 import { useFavorites } from "@/contexts/FavoriteContext";
-import ProductCard from "./ProductCard";
+import ProductCard from "./product/ProductCard";
 import { SectionHeader } from "./SectionHeader";
 
 

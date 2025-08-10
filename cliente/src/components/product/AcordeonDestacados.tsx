@@ -18,7 +18,7 @@ const AcordeonDestacados = memo(({destacados}:Destacados) => {
         </AccordionTrigger>
         <AccordionContent>
           <ul className="space-y-1">
-            {destacados.map((feature, index) => (
+            {destacados?.map((feature, index) => (
               <li
                 key={index}
                 className="text-xs text-gray-600 flex items-center gap-2"
