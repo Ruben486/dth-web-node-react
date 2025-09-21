@@ -1,33 +1,34 @@
-import { useEffect, memo, useMemo, Suspense, lazy } from "react";
+import { useEffect, memo, useMemo, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { motionProps } from "../constants/motionProps";
 import { Card } from "../components/ui/card";
 import { stdBtn } from "../components/uiDesign/standarUi";
 import { Loader } from "../components/Loader";
-import {useProductStore} from "../components/product/store/productStore";
-
-const ListaDestacados = lazy(() => import("@/components/product/ListaDestacados"));
-const ProductFeaturesTab = lazy(
-  () => import("@/components/product/ProductFeaturesTab")
-);
-const Header = lazy(() => import("@/components/Header"));
+import Header from '@/components/header/PageHeader';
+import ListaDestacados from '@/components/product/ListaDestacados';
+import ProductFeaturesTab from "@/components/product/ProductFeaturesTab";
 import { AddToCartButton } from "../components/product/AddToCartButton";
-import { LoadImage } from "../components/product/LoadImage";
-import { GoBackButton } from "../components/GoBackButton";
+import { LoadImage } from "../components/LoadImage";
+import { GoBackButton } from "../components/header/GoBackButton";
+import { useQueryProduct } from '../components/product/hooks/useQueryProduct'
+import { formatValor } from '../services/formatValor'
+import { getCategoryDescription } from "@/components/product/actions/getCategoryDescription";
+import { LoaderSpinner } from "@/services/LoadSpinner";
 
 const ProductDetail = memo(() => {
   console.log("detalles");
 
-  const { products } = useProductStore();
+  const { productQuery } = useQueryProduct()
+  const {data:products, isLoading} = {...productQuery}
   const { id } = useParams();
   const product = products.find((p) => p._id === id);
 
   const {
-    descripcion: name,
+    descripcion,
     urlImagen: image,
     precio: price,
-    detalle: detalle,
+    categoriaId
   } = { ...product };
 
   useEffect(() => {
@@ -36,7 +37,7 @@ const ProductDetail = memo(() => {
   }, []);
 
   const optimizedLoadImage = useMemo(
-    () => <LoadImage src={image} alt={name} />,
+    () => <LoadImage src={image} alt={descripcion} />,
     [image, name]
   );
 
@@ -47,12 +48,12 @@ const ProductDetail = memo(() => {
       </div>
     );
   }
+  isLoading && <LoaderSpinner />
+  
   return (
     <>
       <div className="container bg-white">
-        <Suspense fallback={<Loader />}>
-          <Header />
-        </Suspense>
+        <Header />
         <GoBackButton />
         <main className="flex flex-col my-2">
 
@@ -69,19 +70,18 @@ const ProductDetail = memo(() => {
                 <Card className="w-full flex-1 shadow-lg px-4 py-2 mb-2 space-y-3">
                   <div className="space-y-3">
                     <h1 className="md:text-3xl font-bold text-gray-900">
-                      {name}
+                      {descripcion}
                     </h1>
-                    <p className="text-sm text-gray-500">{product.category}</p>
+                    <p className="text-sm text-gray-500"></p>
                     <p className="md:text-2xl font-semibold text-gray-900">
-                      ${price}
+                      {formatValor(price)}
                     </p>
-                    <p className="text-gray-600">{detalle}</p>
+                    <p className=" text-sm">{getCategoryDescription(categoriaId)}</p>
+                    <p className="text-gray-600">{descripcion}</p>
                     {product.itemsDestacados.length > 0 && (
-                      <Suspense fallback={<Loader />}>
-                        <ListaDestacados
-                          itemsDestacados={product.itemsDestacados}
-                        />
-                      </Suspense>
+                      <ListaDestacados
+                        itemsDestacados={product.itemsDestacados}
+                      />
                     )}
                   </div>
                   <AddToCartButton

@@ -1,0 +1,936 @@
+[{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dca"
+  },
+  "descripcion": "Todos",
+  "idGestion": "000",
+  "frecuente": true,
+  "icono": "LayoutGrid"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dcb"
+  },
+  "idGestion": "001",
+  "descripcion": "ACONDICIONADORES DE AIRE",
+  "frecuente": true,
+  "icono": "AirVent"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dcc"
+  },
+  "idGestion": "002",
+  "descripcion": "AFEITADORAS",
+  "frecuente": false,
+  "icono": "Sword"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dcd"
+  },
+  "idGestion": "003",
+  "descripcion": "ALACENAS",
+  "frecuente": false,
+  "icono": "SwatchBook"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dce"
+  },
+  "idGestion": "004",
+  "descripcion": "ALMOHADAS",
+  "frecuente": false,
+  "icono": "BedDouble"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dcf"
+  },
+  "idGestion": "005",
+  "descripcion": "ANDADORES",
+  "frecuente": false,
+  "icono": "SwatchBook"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd0"
+  },
+  "idGestion": "006",
+  "descripcion": "ANTENAS DE TV",
+  "frecuente": false,
+  "icono": "Antenna"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd1"
+  },
+  "idGestion": "008",
+  "descripcion": "ART.INFANTILES",
+  "frecuente": false,
+  "icono": "SwatchBook"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd2"
+  },
+  "idGestion": "009",
+  "descripcion": "ART.DE AUDIO",
+  "frecuente": false,
+  "icono": "Mic"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd3"
+  },
+  "idGestion": "010",
+  "descripcion": "ASPIRADORAS",
+  "frecuente": false,
+  "icono": "Fan"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd4"
+  },
+  "idGestion": "011",
+  "descripcion": "GIMNASIA",
+  "frecuente": false,
+  "icono": "HeartPlus"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd5"
+  },
+  "idGestion": "012",
+  "descripcion": "ART.DE CAMPING",
+  "frecuente": false,
+  "icono": "Trees"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd6"
+  },
+  "idGestion": "013",
+  "descripcion": "BALANZAS",
+  "frecuente": false,
+  "icono": "CircleGauge"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd7"
+  },
+  "idGestion": "014",
+  "descripcion": "JUEGOS DE BATERIA",
+  "frecuente": false,
+  "icono": "HardHat"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd8"
+  },
+  "idGestion": "015",
+  "descripcion": "BATIDORAS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dd9"
+  },
+  "idGestion": "016",
+  "descripcion": "BIBLIOTECAS",
+  "frecuente": true,
+  "icono": "SwatchBook"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dda"
+  },
+  "idGestion": "017",
+  "descripcion": "BICICLETAS",
+  "frecuente": true,
+  "icono": "Bike"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5ddb"
+  },
+  "idGestion": "018",
+  "descripcion": "BUTACAS",
+  "frecuente": false,
+  "icono": "Sofa"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5ddc"
+  },
+  "idGestion": "019",
+  "descripcion": "BOTIQUINES",
+  "frecuente": false,
+  "icono": "SwatchBook"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5ddd"
+  },
+  "idGestion": "020",
+  "descripcion": "CALCULADORAS",
+  "frecuente": false,
+  "icono": "Calculator"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dde"
+  },
+  "idGestion": "021",
+  "descripcion": "COMPUTACION",
+  "frecuente": true,
+  "icono": "Monitor"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5ddf"
+  },
+  "idGestion": "022",
+  "descripcion": "CAFETERAS",
+  "frecuente": false,
+  "icono": "HousePlus"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de0"
+  },
+  "idGestion": "023",
+  "descripcion": "CALEFACTORES",
+  "frecuente": true,
+  "icono": "ThermometerSun"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de1"
+  },
+  "idGestion": "024",
+  "descripcion": "CALEFONES",
+  "frecuente": true,
+  "icono": "ThermometerSun"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de2"
+  },
+  "idGestion": "025",
+  "descripcion": "CALENTADORES",
+  "frecuente": false,
+  "icono": "SwatchBook"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de3"
+  },
+  "idGestion": "026",
+  "descripcion": "CAMAS",
+  "frecuente": true,
+  "icono": "BedDouble"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de4"
+  },
+  "idGestion": "027",
+  "descripcion": "CAMPANAS",
+  "frecuente": false,
+  "icono": "SwatchBook"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de5"
+  },
+  "idGestion": "028",
+  "descripcion": "AUDIO",
+  "frecuente": false,
+  "icono": "AudioWaveform"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de6"
+  },
+  "idGestion": "029",
+  "descripcion": "COCHES BB",
+  "frecuente": false,
+  "icono": "SwatchBook"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de7"
+  },
+  "idGestion": "030",
+  "descripcion": "CHIFONIERS",
+  "frecuente": false,
+  "icono": "ToolCase"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de8"
+  },
+  "idGestion": "031",
+  "descripcion": "COCINAS",
+  "frecuente": false,
+  "icono": "CookingPot"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5de9"
+  },
+  "idGestion": "032",
+  "descripcion": "COLCHONES",
+  "frecuente": false,
+  "icono": "HousePlus"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dea"
+  },
+  "idGestion": "033",
+  "descripcion": "COMODAS",
+  "frecuente": false,
+  "icono": "Armchair"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5deb"
+  },
+  "idGestion": "034",
+  "descripcion": "CONEXIONES",
+  "frecuente": false,
+  "icono": "Cable"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dec"
+  },
+  "idGestion": "035",
+  "descripcion": "CONSERVADORAS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5ded"
+  },
+  "idGestion": "036",
+  "descripcion": "CORRALITOS",
+  "frecuente": false,
+  "icono": "ToolCase"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dee"
+  },
+  "idGestion": "037",
+  "descripcion": "CORTADORAS DE CESPED",
+  "frecuente": false,
+  "icono": "UtilityPole"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5def"
+  },
+  "idGestion": "038",
+  "descripcion": "CUCHETAS",
+  "frecuente": false,
+  "icono": "BedDouble"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df0"
+  },
+  "idGestion": "039",
+  "descripcion": "CUNAS",
+  "frecuente": false,
+  "icono": "BedDouble"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df1"
+  },
+  "idGestion": "040",
+  "descripcion": "CORTADORAS",
+  "frecuente": false,
+  "icono": "Scissors"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df2"
+  },
+  "idGestion": "043",
+  "descripcion": "DEPILADORAS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df3"
+  },
+  "idGestion": "048",
+  "descripcion": "ESCRITORIOS",
+  "frecuente": false,
+  "icono": "ToolCase"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df4"
+  },
+  "idGestion": "049",
+  "descripcion": "ESPEJOS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df5"
+  },
+  "idGestion": "050",
+  "descripcion": "ESTUFAS",
+  "frecuente": true,
+  "icono": "BrickWallFire"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df6"
+  },
+  "idGestion": "051",
+  "descripcion": "EXPRIMIDORES",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df7"
+  },
+  "idGestion": "054",
+  "descripcion": "FABRIPASTAS",
+  "frecuente": false,
+  "icono": "ChefHat"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df8"
+  },
+  "idGestion": "056",
+  "descripcion": "FREEZERS",
+  "frecuente": true,
+  "icono": "Snowflake"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5df9"
+  },
+  "idGestion": "057",
+  "descripcion": "FREIDORAS",
+  "frecuente": false,
+  "icono": "CookingPot"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dfa"
+  },
+  "idGestion": "061",
+  "descripcion": "GUITARRAS",
+  "frecuente": false,
+  "icono": "Guitar"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dfb"
+  },
+  "idGestion": "062",
+  "descripcion": "HORNOS",
+  "frecuente": true,
+  "icono": "Heater"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dfc"
+  },
+  "idGestion": "063",
+  "descripcion": "HERRAMIENTAS",
+  "frecuente": false,
+  "icono": "PocketKnife"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dfd"
+  },
+  "idGestion": "064",
+  "descripcion": "HELADERAS",
+  "frecuente": true,
+  "icono": "Refrigerator"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dfe"
+  },
+  "idGestion": "065",
+  "descripcion": "INDUSTRIALES",
+  "frecuente": false,
+  "icono": "Wrench"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5dff"
+  },
+  "idGestion": "066",
+  "descripcion": "JUEGO DE MESA Y SILLAS",
+  "frecuente": true,
+  "icono": "RockingChair"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e00"
+  },
+  "idGestion": "067",
+  "descripcion": "JARDIN",
+  "frecuente": false,
+  "icono": "TreePalm"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e01"
+  },
+  "idGestion": "068",
+  "descripcion": "JUEGOS",
+  "frecuente": false,
+  "icono": "Trophy"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e02"
+  },
+  "idGestion": "069",
+  "descripcion": "JUGUERAS",
+  "frecuente": false,
+  "icono": "LoaderPinwheel"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e03"
+  },
+  "idGestion": "072",
+  "descripcion": "LAVANDINES",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e04"
+  },
+  "idGestion": "073",
+  "descripcion": "LAVARROPAS",
+  "frecuente": false,
+  "icono": "WashingMachine"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e05"
+  },
+  "idGestion": "074",
+  "descripcion": "LICUADORAS",
+  "frecuente": false,
+  "icono": "LoaderPinwheel"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e06"
+  },
+  "idGestion": "075",
+  "descripcion": "LIVINGS",
+  "frecuente": false,
+  "icono": "Couch"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e07"
+  },
+  "idGestion": "076",
+  "descripcion": "LUSTRASPIRADORAS",
+  "frecuente": false,
+  "icono": "Shell"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e08"
+  },
+  "idGestion": "079",
+  "descripcion": "MAQUINAS DE COSER",
+  "frecuente": false,
+  "icono": "ToolCase"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e09"
+  },
+  "idGestion": "082",
+  "descripcion": "MESAS DE COMEDOR",
+  "frecuente": false,
+  "icono": "Dices"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e0a"
+  },
+  "idGestion": "083",
+  "descripcion": "MESAS DE LIVING",
+  "frecuente": true,
+  "icono": "Dices"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e0b"
+  },
+  "idGestion": "084",
+  "descripcion": "MESAS DE LUZ",
+  "frecuente": false,
+  "icono": "Dices"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e0c"
+  },
+  "idGestion": "085",
+  "descripcion": "MESAS DE PLANCHAR",
+  "frecuente": false,
+  "icono": "Dice1"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e0d"
+  },
+  "idGestion": "087",
+  "descripcion": "MESAS",
+  "frecuente": true,
+  "icono": "Dice1"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e0e"
+  },
+  "idGestion": "089",
+  "descripcion": "MESADAS",
+  "frecuente": false,
+  "icono": "Dice1"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e0f"
+  },
+  "idGestion": "091",
+  "descripcion": "MODULARES",
+  "frecuente": false,
+  "icono": "ToolCase"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e10"
+  },
+  "idGestion": "092",
+  "descripcion": "MULTIPROCESADORAS",
+  "frecuente": true,
+  "icono": "UtilityPole"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e11"
+  },
+  "idGestion": "093",
+  "descripcion": "MOTOS",
+  "frecuente": true,
+  "icono": "SquareM"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e12"
+  },
+  "idGestion": "095",
+  "descripcion": "OLLAS",
+  "frecuente": true,
+  "icono": "Pot"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e13"
+  },
+  "idGestion": "097",
+  "descripcion": "PAVAS",
+  "frecuente": false,
+  "icono": "UtilityPole"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e14"
+  },
+  "idGestion": "098",
+  "descripcion": "PERCHEROS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e15"
+  },
+  "idGestion": "099",
+  "descripcion": "PILETAS",
+  "frecuente": false,
+  "icono": "Waves"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e16"
+  },
+  "idGestion": "100",
+  "descripcion": "PLACARDS",
+  "frecuente": true,
+  "icono": "Store"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e17"
+  },
+  "idGestion": "101",
+  "descripcion": "PLANCHAS",
+  "frecuente": true,
+  "icono": "UtilityPole"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e18"
+  },
+  "idGestion": "103",
+  "descripcion": "PROD. MUSICALES",
+  "frecuente": false,
+  "icono": "Headphones"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e19"
+  },
+  "idGestion": "105",
+  "descripcion": "RADIO",
+  "frecuente": false,
+  "icono": "AudioLines"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e1a"
+  },
+  "idGestion": "106",
+  "descripcion": "MICRO AUDIO",
+  "frecuente": false,
+  "icono": "Headphones"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e1b"
+  },
+  "idGestion": "108",
+  "descripcion": "REPISAS",
+  "frecuente": false,
+  "icono": "Store"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e1c"
+  },
+  "idGestion": "109",
+  "descripcion": "REPOSERAS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e1d"
+  },
+  "idGestion": "111",
+  "descripcion": "RODADOS INFANTILES",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e1e"
+  },
+  "idGestion": "112",
+  "descripcion": "SALUD",
+  "frecuente": false,
+  "icono": "ShieldPlus"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e1f"
+  },
+  "idGestion": "113",
+  "descripcion": "CUIDADO PERSONAL",
+  "frecuente": false,
+  "icono": "HandPlatter"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e20"
+  },
+  "idGestion": "114",
+  "descripcion": "SECARROPAS",
+  "frecuente": false,
+  "icono": "Fan"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e21"
+  },
+  "idGestion": "115",
+  "descripcion": "SILLAS",
+  "frecuente": false,
+  "icono": "Sofa"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e22"
+  },
+  "idGestion": "116",
+  "descripcion": "SILLETAS",
+  "frecuente": false,
+  "icono": "Sofa"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e23"
+  },
+  "idGestion": "117",
+  "descripcion": "SILLONES",
+  "frecuente": false,
+  "icono": "Sofa"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e24"
+  },
+  "idGestion": "118",
+  "descripcion": "SOMBRILLAS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e25"
+  },
+  "idGestion": "119",
+  "descripcion": "SANWICHERAS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e26"
+  },
+  "idGestion": "120",
+  "descripcion": "TOSTADORAS",
+  "frecuente": false,
+  "icono": "UtilityPole"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e27"
+  },
+  "idGestion": "121",
+  "descripcion": "TELEVISORES",
+  "frecuente": false,
+  "icono": "Tv"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e28"
+  },
+  "idGestion": "122",
+  "descripcion": "TERMOTANQUES",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e29"
+  },
+  "idGestion": "123",
+  "descripcion": "TELEFONOS",
+  "frecuente": true,
+  "icono": "Smartphone"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e2a"
+  },
+  "idGestion": "124",
+  "descripcion": "TURBOS",
+  "frecuente": true,
+  "icono": "Fan"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e2b"
+  },
+  "idGestion": "127",
+  "descripcion": "ARTICULOS VARIOS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e2c"
+  },
+  "idGestion": "129",
+  "descripcion": "VENTILADORES",
+  "frecuente": true,
+  "icono": "Fan"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e2d"
+  },
+  "idGestion": "130",
+  "descripcion": "MC.",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e2e"
+  },
+  "idGestion": "131",
+  "descripcion": "BLANQUERIA",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e2f"
+  },
+  "idGestion": "135",
+  "descripcion": "ACCESORIOS",
+  "frecuente": false,
+  "icono": "Cog"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e30"
+  },
+  "idGestion": "150",
+  "descripcion": "RELOJES",
+  "frecuente": true,
+  "icono": "AlarmClockMinus"
+},
+{
+  "_id": {
+    "$oid": "688255d1df7426c6fb4f5e31"
+  },
+  "idGestion": "935",
+  "descripcion": "VARIOS",
+  "frecuente": false,
+  "icono": "Shovel"
+}]

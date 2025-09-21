@@ -1,12 +1,12 @@
-import { lazy } from "react";
 
-const Offers = lazy(() => import("@/components/product/Offers"));
-const FeaturedProducts = lazy(() => import("@/components/product/FeaturedProducts"));
-const PaymentAds = lazy(() => import("@/components/PaymentAds"));
+import Offers from '@/components/product/Offers'
+import FeaturedProducts from '@/components/product/FeaturedProducts'
+import PaymentAds from '@/components/PaymentAds'
+
 
 const MiddleZone = () => {
   return (
-    <>  
+    <>
       <Offers />
       <PaymentAds />
       <FeaturedProducts />

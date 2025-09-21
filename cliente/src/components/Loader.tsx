@@ -1,7 +1,15 @@
+import { Atom, LoaderPinwheel } from "lucide-react";
 
 export const Loader = () => {
   return (
-    <div role="status" className="flex items-center mx-auto justify-center">
+    <div className="loading">
+      <div className="flex w-full h-screen justify-center items-center  bg-transparent animate-spin">
+        <LoaderPinwheel  size={40} className="text-pink-600"/>
+      </div>
+    </div>
+  )
+};
+{/* <div role="status" className="w-full h-screen flex items-center mx-auto justify-center">
       <svg
         aria-hidden="true"
         className="inline w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-pink-600"
@@ -20,7 +28,6 @@ export const Loader = () => {
       </svg>
       <span className="sr-only">Loading...</span>
     </div>
-  );
-};
+  ); */}
 
 

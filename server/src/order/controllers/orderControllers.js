@@ -22,7 +22,6 @@ export const getOrderById = async (req, res) => {
 };
 
 export const createOrder = async (req, res) => {
-  console.log(req.originalUrl);
   try {
     const order = new Order(req.body);
     const savedOrder = await order.save();
@@ -54,5 +53,43 @@ export const deleteOrder = async (req, res) => {
     res.status(200).json({ message: "Orden eliminada" });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+export const addOrder = async (payment) => {
+
+  const newOrder = {
+    paymentId: payment.id,
+    status: payment.status,
+    status_detail: payment.status.detail,
+    transaction_amount: payment.transaction_amount,
+    date_created: payment.date_created,
+    date_approved: payment.date_approved, // corrected typo
+    payment_method: {
+      id: payment.payment_method_id,
+      type: payment.payment_type_id,
+    },
+    order: {
+      id: payment.order?.id,
+      type: payment.order?.type,
+     },
+    payer: {
+      email: payment.payer?.email,
+      identification: {
+        number: payment.payer?.identification.number,
+        type: payment.payer?.identification.type,
+      }
+    },
+    external_reference: payment.external_reference,
+    description: payment.description,
+    metadata: payment.metadata,
+    productos: []
+  };
+  try {
+    const orderInstance = new Order(newOrder);
+    const savedOrder = await orderInstance.save()
+    console.log('Nueva orden guardada:', savedOrder);
+    return savedOrder
+  } catch (error) {
+    console.log(error)
   }
 };

@@ -23,8 +23,8 @@ const responseUser = (user) => {
 // el register deber verse ademas como create user signUp
 const register = async (req, res) => {
   // HAY QUE ENVOLVER Toda el proceso en un una transaccion
-  const session = await mongoose.startSession();
-  session.startTransaction();
+  //const session = await mongoose.startSession();
+  //session.startTransaction();
   try {
     const { username, email, password } = req.body;
 
@@ -78,12 +78,12 @@ const register = async (req, res) => {
     });
 
     // Guardar el usuario en la base de datos
-    const savedUser = await newUser.save({ session });
+    const savedUser = await newUser.save();
     const token = authenticateUser(res, savedUser);
 
     // Confirmar la transacción
-    await session.commitTransaction();
-    session.endSession();
+    //await session.commitTransaction();
+    //session.endSession();
 
     // Enviar respuesta exitosa
     return sendResponse(
@@ -96,8 +96,8 @@ const register = async (req, res) => {
     );
   } catch (error) {
     // Abortar la transacción en caso de error
-    await session.abortTransaction();
-    session.endSession();
+    //await session.abortTransaction();
+    //session.endSession();
 
     // Determinar el código de estado y mensaje apropiados
     const statusCode = error.statusCode || 500;
@@ -163,7 +163,7 @@ const logout = (req, res) => {
 // google auth controller (googleSignIn o googleSignUp)
 const googleSignIn = async (req, res) => {
   const { uid: googleId, email, displayName } = req.body;
-
+  
   // Iniciar una transacción para garantizar la integridad de los datos
   const session = await mongoose.startSession();
   session.startTransaction();
@@ -188,7 +188,7 @@ const googleSignIn = async (req, res) => {
     const user = await User.findOne({
       email,
       googleId,
-    }).session(session);
+    });
 
     if (!user) {
       // Crear un nuevo usuario si no existe
@@ -204,7 +204,7 @@ const googleSignIn = async (req, res) => {
       });
 
       // Guardar el nuevo usuario
-      const savedUser = await newGoogleUser.save({ session });
+      const savedUser = await newGoogleUser.save({session});
       const token = authenticateUser(res, savedUser);
 
       // Confirmar la transacción
@@ -224,7 +224,7 @@ const googleSignIn = async (req, res) => {
       if (user.authProvider !== "google") {
         user.username = displayName;
         user.authProvider = "google";
-        await user.save({ session });
+        await user.save({session});
       }
 
       const token = authenticateUser(res, user);
@@ -249,9 +249,9 @@ const googleSignIn = async (req, res) => {
 
     // Determinar el código de estado y mensaje apropiados
     const statusCode = error.statusCode || 500;
-    const message =
-      statusCode === 500 ? "Error al iniciar sesión con Google" : error.message;
-
+    const message = error
+      // statusCode === 500 ? `Error al iniciar sesión con Google ${error}`   : error.message;
+    console.log(error)
     return handleError(res, statusCode, message, error);
   }
 };

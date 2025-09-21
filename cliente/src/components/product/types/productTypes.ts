@@ -22,12 +22,16 @@ export interface Product {
     masVendido: boolean,
     marca: string,
     tabsData: string[],
-    caracDestacados: string[],
+    itemsDestacados: string[],
     porcDtoEfectivo: number, 
-    viewInLine: boolean,
+    viewInLine?: boolean,
+    quantity?: number
 };
-
-export interface ProductCardProps {
+export interface ProductCardProps extends Product {
+    quantity?: number;
+    viewInLine?: boolean;
+}
+/* export interface ProductCardProps {
     _id: string;
     descripcion: string;
     precio: number;
@@ -36,5 +40,5 @@ export interface ProductCardProps {
     quantity: number
     itemsDestacados: string[];
     viewInLine: boolean;
-  };
+  }; */
   

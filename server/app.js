@@ -11,11 +11,10 @@ import useragent from "express-useragent"; // Importa el middleware de useragent
 import { applySecurityMiddleware } from "./src/middlewares/securityMiddleware.js";
 import { generalRateLimiter } from "./src/middlewares/rateLimitMiddleware.js";
 import { botDetection } from "./src/middlewares/botDetectionMiddleware.js";
-import { config } from "dotenv";
+import "dotenv/config";
 
 const app = express();
 export const serverCache = new nodeCache();
-
 // Aplicar middlewares de seguridad básicos
 app.use(helmet());
 app.use(morgan("dev"));
@@ -36,21 +35,26 @@ app.use(generalRateLimiter(200, 60 * 1000)); // 200 solicitudes por minuto globa
 // Middleware de Arcjet (comentado)
 // app.use(arcjetMiddleware);
 
+const allowedOrigins = [
+  'http://localhost:8081',
+  'http://localhost:8082',
+  'http://localhost:5173',
+  process.env.FRONTEND_URL,
+  process.env.FRONTEND_TUNNEL,
+  'https://jjtxsbw0-5173.brs.devtunnels.ms'
+].filter(Boolean); // Remove undefined or empty origins
+
 const corsOptions = {
-  // Especifica los orígenes permitidos
-  origin: [
-    'http://localhost:8081',
-    'http://localhost:8081',
-    'http://localhost:8082',
-    'http://localhost:5173', 
-    process.env.FRONTEND_URL,
-    // Agrega otros dominios permitidos según necesites
-  ],
-  
-  // Métodos HTTP permitidos
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  
-  // Headers permitidos
   allowedHeaders: [
     'Content-Type',
     'Authorization',
@@ -58,25 +62,29 @@ const corsOptions = {
     'Origin',
     'Accept',
   ],
-  
-  // Exponer estos headers al cliente
   exposedHeaders: ['Content-Range', 'X-Content-Range','set-cookie'],
-  
-  // Permitir credenciales (cookies, headers de autorización)
   credentials: true,
-  
-  // Tiempo máximo que el navegador puede cachear la respuesta pre-flight
   maxAge: 86400, // 24 horas
-
   preflightContinue: false,
-  // Manejo de errores
   optionsSuccessStatus: 204
 };
+
+app.use(cors(corsOptions));
+/* app.use(cors({
+  credentials: true,
+  origin: "*"
+})); */
+// Establecer encabezados personalizados después de cors
 app.use((req, res, next) => {
+  // Solo establecer Access-Control-Allow-Credentials si se permite
   res.header('Access-Control-Allow-Credentials', 'true');
+  // Establecer Access-Control-Allow-Origin solo si el origen está permitido
+  /* const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  } */
   next();
 });
-app.use(cors(corsOptions));
 
 app.use(fileUpload({
     limits: {fileSize: 1024*1024*50},

@@ -10,7 +10,6 @@ export const MediosDePago = memo(() => {
    icono: React.ComponentType<React.SVGProps<SVGSVGElement>>; 
 } 
 
-  
   return (
     <>
       <Card

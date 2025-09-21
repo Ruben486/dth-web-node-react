@@ -1,4 +1,4 @@
-export const heroImages = [
+/* export const heroImages = [
   {
     url: "https://plus.unsplash.com/premium_photo-1680127402190-4ec85e040290?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG9nYXJlcyUyMGx1bWlub3NvcyUyMGRvbmRlJTIwc2UlMjBhcHJlY2lhbiUyMGVsZXRyZG9tZXN0aWNvc3xlbnwwfHwwfHx8MA%3D%3D",
     alt: "Amoblamietos de Cocina ",
@@ -13,6 +13,36 @@ export const heroImages = [
   },
   {
     url: "https://images.unsplash.com/photo-1568816642854-e5a99030f9af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1vdG9zfGVufDB8fDB8fHw",
+    alt: "Motos",
+  },
+]; */
+export const heroImages = [
+  {
+    url: "/images/dth3.jpg",
+    alt: "Amoblamietos de Cocina ",
+  },
+  {
+    url: "/images/dth4.jpg",
+    alt: "Telefonos celulares",
+  },
+  {
+    url: "/images/dth7.jpg",
+    alt: "Sillones de Living",
+  },
+  {
+    url: "/images/dth8.jpg",
+    alt: "Motos",
+  },
+  {
+    url: "/images/dth11.jpg",
+    alt: "Telefonos celulares",
+  },
+  {
+    url: "/images/dth20.jpg",
+    alt: "Sillones de Living",
+  },
+  {
+    url: "/images/dth22.jpg",
     alt: "Motos",
   },
 ];

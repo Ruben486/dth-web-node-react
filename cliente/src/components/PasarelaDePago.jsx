@@ -1,8 +1,8 @@
-import { loadMercadoPago } from "../api/mercadoPagoApi";
 import { useEffect, useState, useCallback } from "react";
+import { loadMercadoPago } from "../api/mercadoPagoApi";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
-import { useCart } from "../contexts/CartContext";
 import { useToast } from "./ui/use-toast";
+import { useCart } from "../contexts/CartContext";
 
 export const PasarelaDePago = ({ loadWallet, setLoadWallet, onClose,user }) => {
   const { toast } = useToast();

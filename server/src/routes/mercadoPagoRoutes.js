@@ -4,7 +4,7 @@ import { createPreferences,mpwebhook,getPagoPorId } from "../controllers/mercado
 const router = express.Router();
 
 router.post('/createPreferences',createPreferences);
-router.post('/mpwebhook',mpwebhook);
+router.post('/webhook',mpwebhook);
 router.get('/getPagoPorId',getPagoPorId);
 
 export default router;

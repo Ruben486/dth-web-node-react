@@ -45,7 +45,7 @@ const ProductoSchema = new Schema(
     nuevo: { type: Boolean, required: true, default: false },
     masVendido: { type: Boolean, required: true, default: false },
     marca: { type: String, required: false, default: null },
-    caracDestacados: [String],
+    itemsDestacados: [String],
     tabsData: [
       {
         label: { type: String, required: false },
@@ -61,6 +61,6 @@ const ProductoSchema = new Schema(
   { timestamps: true }
 );
 
-const Producto = mongoose.model("Producto", ProductoSchema);
+const Producto = mongoose.model("Product", ProductoSchema);
 
 export default Producto;

@@ -1,7 +1,7 @@
 import { useMemo, useCallback, memo } from "react";
 import { ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "@/components/cart/context/CartContext";
 import { useToast } from "../ui/use-toast";
 import { ProductCardProps } from './types/productTypes';
 
@@ -19,7 +19,7 @@ export const AddToCartButton = memo(
     const { addToCart } = useCart();
 
     const MemoShoppingCart = useMemo(
-      () => <ShoppingCart className="h-3 w-3" />,
+      () => <ShoppingCart className="h-8 w-8" />,
       []
     );
 

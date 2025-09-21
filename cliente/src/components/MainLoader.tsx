@@ -1,5 +1,6 @@
+
+
 const MainLoader = () => {
-    
   return (
     <div className="flex flex-row items-center justify-center py-10 w-full min-h-screen bg-gray-300">
       <div className="flex items-center space-x-4">

@@ -3,10 +3,30 @@ const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema(
   {
-    idCliente: {
-      type: String,
-      required: [true, "El id del cliente es requerido"],
+    paymentId: { type: String, required: true },
+    status: { type: String, required: true },
+    status_detail: { type: String, required:false },
+    transaction_amount: { type: Number, required: true },
+    date_created: { type: Date, default: Date.now() },
+    date_aproved: { type: Date, default: Date.now() },
+    payment_method: {
+      id: { type: String },
+      type: { type: String },
     },
+   order: {
+      id: {type: String, required: false},
+      type: {type: String, required: false}
+    },
+    payer: {
+      email: { type: String },
+      identification:{
+        number: { type: String, required: false },
+        type: { type: String, required: false }
+      } ,
+    },
+    external_reference: { type: String },
+    description: { type: String },
+    metadata: { type: Object, required: false},
     productos: {
       type: [
         {
@@ -30,39 +50,6 @@ const OrderSchema = new Schema(
       ],
       required: false,
     },
-    fechaOrden: {
-      type: Date,
-      default: Date.now,
-    },
-    total: {
-      type: Number,
-      required: [true, "El total de la orden es requerido"],
-    },
-    estado: {
-      type: String,
-    
-      default: "Pendiente",
-    },
-    estadoPago: {
-      type: String,
-      
-      default: "Pendiente",
-      required: false,
-    },
-    formaDePago: {
-      type: String,
-     
-      default: "Efectivo",
-      required: false,
-    },
-    idTransaccion: { type: String, required: false },
-    idTransaccionMercadoPago: { type: String, required: false },
-    externalIdOrden: { type: String, required: false },
-
-    payerName: { type: String, required: false },
-    payerEmail: { type: String, required: false },
-    payerId: { type: String, required: false },
-    payerPhone: { type: String, required: false },
   },
   { timestamps: true }
 );

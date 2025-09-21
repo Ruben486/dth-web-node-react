@@ -4,14 +4,20 @@ import {
   LazyExoticComponent,
   MemoExoticComponent,
 } from "react";
-
-const Index = lazy(() => import("../pages/Index"));
+import Index from "../pages/Index";
+import ProductDetail from "../pages/ProductDetail";
+import Cart from "../pages/Cart";
+import Favorites from "../pages/Favorites";
+import WalletSuccess from "../pages/WalletSuccess";
+import WalletFailure from "../pages/WalletFailure";
+import WalletPending from "../pages/WalletPending";
+/* const Index = lazy(() => import("../pages/Index"));
 const ProductDetail = lazy( () => import("../pages/ProductDetail"));
 const Cart = lazy(() => import("../pages/Cart"));
 const Favorites = lazy(() => import("../pages/Favorites"));
 const WalletSuccess = lazy(() => import("../pages/WalletSuccess"));
 const WalletFailure = lazy(() => import("../pages/WalletFailure"));
-const WalletPending = lazy(() => import("../pages/WalletPending"));
+const WalletPending = lazy(() => import("../pages/WalletPending")); */
 
 type JSXComponent = () => JSX.Element;
 

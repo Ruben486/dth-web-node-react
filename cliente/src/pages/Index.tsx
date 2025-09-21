@@ -1,38 +1,52 @@
-import { memo, useState, lazy, Suspense } from "react";
-import {Loader} from '../components/Loader';
-const Navbar = lazy(() => import("@/components/Navbar"));
-const HeaderZone = lazy(() => import("@/pages/HeaderZone"));
-const MiddleZone = lazy(() => import("./MiddleZone"));
-const MainZone = lazy(() => import("./MainZone"));
-const Footer = lazy(() => import("@/components/Footer"));
+import React from "react";
+import SearchBar from "@/components/header/SearchBar";
+import Navbar from '@/components/header/Navbar'
+import MiddleZone from './MiddleZone'
+import Hero from "@/components/header/Hero";
+import Categories from "@/components/categoriy/Categories";
+import ProductGrid from "@/components/product/ProductGrid";
+import Footer from '../components/Footer'
 
-const initialState = "0000";
 
-const Index: React.FC = memo(() => {
-  const [selectedCategory, setSelectedCategory] = useState(initialState);
-  const [searchString, setSearchString] = useState("");
+interface IndexProps {
+  searchString: string;
+  setSearchString: React.Dispatch<React.SetStateAction<string>>;
+  searchCategory: string;
+  setSearchCategory: React.Dispatch<React.SetStateAction<string>>;
+}
 
+
+const Index: React.FC<IndexProps> = ({ searchString, setSearchString, searchCategory, setSearchCategory }) => {
+  console.log('Index')
   return (
-    <div className="min-h-screen  bg-gray-100 dark:bg-black flex flex-col">
-      <Navbar />
-       <main className="container pt-6 flex-grow">
-        <HeaderZone
-          searchString={searchString}
-          setSearchString={setSearchString}
-        />
-        <MiddleZone />
-        <Suspense fallback={<Loader />}>
-          <MainZone
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-            searchString={searchString}
+    <div className="min-h-screen bg-gray-100 dark:bg-black flex flex-col">
+      <div 
+      /* style={{
+        backgroundImage: `
+        radial-gradient(125% 125% at 50% 10%, #ffffff 40%, #ec4899 100%)
+      `,
+        backgroundSize: "100% 100%",
+      }} */
+      >
+
+        <Navbar />
+        <SearchBar searchString={searchString} setSearchString={setSearchString} />
+        <main className="container pt-6 flex-grow">
+          <Hero />
+          <MiddleZone />
+          <Categories
+            searchCategory={searchCategory}
+            setSearchCategory={setSearchCategory}
           />
-        </Suspense>
-      </main> 
-      
-      <Footer />
+          <ProductGrid
+            searchString={searchString}
+            searchCategory={searchCategory}
+          />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
-});
+};
 
 export default Index;
